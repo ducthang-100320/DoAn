@@ -1,0 +1,479 @@
+﻿@model List<BanHang.Models.ProductView>
+
+<section>
+    <div class="container">
+        <div class="flash-sales">
+            <div class="header">
+                <h3>F<i class="icon-flash"></i>ASH SALE ONLINE</h3>
+                @*<div class="timer" id="timer" data-start="August 11, 2021 16:40:32" data-end="August 13, 2021 00:00:00"></div>*@
+            </div>
+
+            <div class="content">
+                <div class="owl-carousel equaHeight lr-slider" data-obj=".item a.title">
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+
+                            <div class="item">
+                                <div class="img">
+                                    <a href="dien-thoai-di-dong/iphone-11-64gb-chinh-hang-vn-a.html" title="Apple iPhone 11 - 64GB - Ch&#237;nh h&#227;ng VN/A"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/03/19/iphone-11.png" alt="Apple iPhone 11 - 64GB - Ch&#237;nh h&#227;ng VN/A"></a>
+                                </div>
+                                <div class="info">
+                                    <a class="title" href="dien-thoai-di-dong/iphone-11-64gb-chinh-hang-vn-a.html">@item._Product.Name</a>
+                                    <span class="price">
+                                        <strong>@item._ProductPrice.Price.Value.ToString("N0") đ</strong>
+                                        <strike>@item._ProductPrice.PromotionPrice.Value.ToString("N0") đ</strike>
+
+                                    </span>
+
+
+                                </div>
+                            </div>
+                        }
+
+
+                    }
+
+
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/iphone-11-128gb-chinh-hang-vn-a.html" title="Apple iPhone 11 - 128GB - Ch&#237;nh h&#227;ng VN/A"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/03/19/iphone-11.png" alt="Apple iPhone 11 - 128GB - Ch&#237;nh h&#227;ng VN/A"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/iphone-11-128gb-chinh-hang-vn-a.html">Apple iPhone 11 - 128GB - Ch&#237;nh h&#227;ng VN/A</a>
+                            <span class="price">
+                                <strong>14,990,000 ₫</strong>
+                                <strike>21,990,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/samsung-galaxy-a12-chinh-hang.html" title="Samsung Galaxy A12 - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2020/12/22/white-ok.png" alt="Samsung Galaxy A12 - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/samsung-galaxy-a12-chinh-hang.html">Samsung Galaxy A12 - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>3,550,000 ₫</strong>
+                                <strike>4,290,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/samsung-galaxy-a32-chinh-hang.html" title="Samsung Galaxy A32 - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/03/10/image-removebg-preview_637509826551438442.png" alt="Samsung Galaxy A32 - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/samsung-galaxy-a32-chinh-hang.html">Samsung Galaxy A32 - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>5,520,000 ₫</strong>
+                                <strike>6,690,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/samsung-galaxy-a52-chinh-hang.html" title="Samsung Galaxy A52 - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/03/18/image-removebg-preview-10.png" alt="Samsung Galaxy A52 - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/samsung-galaxy-a52-chinh-hang.html">Samsung Galaxy A52 - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>7,790,000 ₫</strong>
+                                <strike>9,290,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/samsung-galaxy-a72-chinh-hang.html" title="Samsung Galaxy A72 - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/03/10/a72.png" alt="Samsung Galaxy A72 - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/samsung-galaxy-a72-chinh-hang.html">Samsung Galaxy A72 - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>9,690,000 ₫</strong>
+                                <strike>11,490,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/samsung-galaxy-S21-plus-chinh-hang.html" title="Samsung Galaxy S21 Plus 128GB 5G - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/01/15/a2.png" alt="Samsung Galaxy S21 Plus 128GB 5G - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/samsung-galaxy-S21-plus-chinh-hang.html">Samsung Galaxy S21 Plus 128GB 5G - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>16,250,000 ₫</strong>
+                                <strike>25,990,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="tai-nghe/tai-nghe-nokia-power-earbuds-lite-chinh-hang.html" title="Tai nghe Nokia Power Earbuds Lite - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/04/08/image-removebg-preview-22.png" alt="Tai nghe Nokia Power Earbuds Lite - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="tai-nghe/tai-nghe-nokia-power-earbuds-lite-chinh-hang.html">Tai nghe Nokia Power Earbuds Lite - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>490,000 ₫</strong>
+                                <strike>990,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dong-ho-thong-minh/samsung-galaxy-watch-3-41mm-r850-chinh-hang.html" title="Samsung Galaxy Watch 3 41mm (R850) - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/06/25/r850.png" alt="Samsung Galaxy Watch 3 41mm (R850) - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dong-ho-thong-minh/samsung-galaxy-watch-3-41mm-r850-chinh-hang.html">Samsung Galaxy Watch 3 41mm (R850) - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>5,290,000 ₫</strong>
+                                <strike>6,990,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dong-ho-thong-minh/samsung-galaxy-watch-3-45mm-r840-chinh-hang.html" title="Samsung Galaxy Watch 3 45mm (R840) - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/06/25/r840-2.png" alt="Samsung Galaxy Watch 3 45mm (R840) - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dong-ho-thong-minh/samsung-galaxy-watch-3-45mm-r840-chinh-hang.html">Samsung Galaxy Watch 3 45mm (R840) - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>5,690,000 ₫</strong>
+                                <strike>7,490,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/xiaomi-redmi-9t-4gb-64gb-chinh-hang-dgw.html" title="Xiaomi Redmi 9T 4GB/64GB - Ch&#237;nh h&#227;ng DGW"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/05/05/image-removebg-preview-16.png" alt="Xiaomi Redmi 9T 4GB/64GB - Ch&#237;nh h&#227;ng DGW"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/xiaomi-redmi-9t-4gb-64gb-chinh-hang-dgw.html">Xiaomi Redmi 9T 4GB/64GB - Ch&#237;nh h&#227;ng DGW</a>
+                            <span class="price">
+                                <strong>3,090,000 ₫</strong>
+                                <strike>3,990,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="tai-nghe/tai-nghe-khong-day-galaxy-buds-pro-chinh-hang.html" title="Tai nghe Galaxy Buds Pro - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/01/14/sm-r190-006-case-front-open-combination-violet.png" alt="Tai nghe Galaxy Buds Pro - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="tai-nghe/tai-nghe-khong-day-galaxy-buds-pro-chinh-hang.html">Tai nghe Galaxy Buds Pro - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>3,090,000 ₫</strong>
+                                <strike>4,590,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="tai-nghe/tai-nghe-sony-wf-sp800n-chinh-hang.html" title="Tai nghe Sony WF-SP800N - Chinh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2020/09/21/Artboard%201%20copy%2011.png" alt="Tai nghe Sony WF-SP800N - Chinh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="tai-nghe/tai-nghe-sony-wf-sp800n-chinh-hang.html">Tai nghe Sony WF-SP800N - Chinh h&#227;ng</a>
+                            <span class="price">
+                                <strong>3,490,000 ₫</strong>
+                                <strike>4,790,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="loa-mini/loa-bluetooth-sony-srs-xb33-chinh-hang.html" title="Sony SRS-XB33 - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2020/09/21/Artboard%201%20copy%2014.png" alt="Sony SRS-XB33 - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="loa-mini/loa-bluetooth-sony-srs-xb33-chinh-hang.html">Sony SRS-XB33 - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>2,650,000 ₫</strong>
+                                <strike>3,690,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="loa-mini/loa-bluetooth-sony-srs-xb23-chinh-hang.html" title="Sony SRS-XB23 - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2020/09/21/Artboard%201%20copy%2013.png" alt="Sony SRS-XB23 - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="loa-mini/loa-bluetooth-sony-srs-xb23-chinh-hang.html">Sony SRS-XB23 - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>1,950,000 ₫</strong>
+                                <strike>2,490,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="phu-kien/tai-nghe-khong-day-sony-wh-ch510-chinh-hang.html" title="Sony WH-CH510 - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2020/09/24/%20WH-CH510.png" alt="Sony WH-CH510 - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="phu-kien/tai-nghe-khong-day-sony-wh-ch510-chinh-hang.html">Sony WH-CH510 - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>990,000 ₫</strong>
+                                <strike>1,190,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/oppo-a74-8gb-128gb-chinh-hang.html" title="Oppo A74 8G/128G - ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/05/28/image-removebg-preview-4.png" alt="Oppo A74 8G/128G - ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/oppo-a74-8gb-128gb-chinh-hang.html">Oppo A74 8G/128G - ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>5,950,000 ₫</strong>
+                                <strike>6,690,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/vivo-y12s-2021-3gb-32gb-chinh-hang.html" title="Vivo Y12s 2021 3GB/32GB - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/04/06/image-removebg-preview-4.png" alt="Vivo Y12s 2021 3GB/32GB - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/vivo-y12s-2021-3gb-32gb-chinh-hang.html">Vivo Y12s 2021 3GB/32GB - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>2,850,000 ₫</strong>
+                                <strike>3,290,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/samsung-galaxy-s20-fe-256gb-chinh-hang.html" title="Samsung Galaxy S20 FE 256GB - Ch&#237;nh h&#227;ng "><img src="~/ContentWeb/i/productlist/ts/Uploads/2020/09/29/S20%20FE%20(1).png" alt="Samsung Galaxy S20 FE 256GB - Ch&#237;nh h&#227;ng "></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/samsung-galaxy-s20-fe-256gb-chinh-hang.html">Samsung Galaxy S20 FE 256GB - Ch&#237;nh h&#227;ng </a>
+                            <span class="price">
+                                <strong>10,990,000 ₫</strong>
+                                <strike>15,490,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/xiaomi-redmi-9t.html" title="Xiaomi Redmi 9T 6GB/128GB - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/01/21/redmi-9t.png" alt="Xiaomi Redmi 9T 6GB/128GB - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/xiaomi-redmi-9t.html">Xiaomi Redmi 9T 6GB/128GB - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>3,690,000 ₫</strong>
+                                <strike>4,990,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="smartwatch/apple-watch-se-gps-40mm-aluminum-case-with-sport-band-chinh-hang-vn-a.html" title="Apple Watch SE (GPS) 40mm - Viền nh&#244;m d&#226;y cao su - Ch&#237;nh h&#227;ng VN/A"><img src="~/ContentWeb/i/productlist/ts/Uploads/2020/11/04/se-40.png" alt="Apple Watch SE (GPS) 40mm - Viền nh&#244;m d&#226;y cao su - Ch&#237;nh h&#227;ng VN/A"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="smartwatch/apple-watch-se-gps-40mm-aluminum-case-with-sport-band-chinh-hang-vn-a.html">Apple Watch SE (GPS) 40mm - Viền nh&#244;m d&#226;y cao su - Ch&#237;nh h&#227;ng VN/A</a>
+                            <span class="price">
+                                <strong>6,390,000 ₫</strong>
+                                <strike>8,990,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="smartwatch/apple-watch-se-gps-44mm-aluminum-case-with-sport-band-chinh-hang-vn-a.html" title="Apple Watch SE (GPS) 44mm - Viền nh&#244;m d&#226;y cao su - Ch&#237;nh h&#227;ng VN/A"><img src="~/ContentWeb/i/productlist/ts/Uploads/2020/11/04/se-44.png" alt="Apple Watch SE (GPS) 44mm - Viền nh&#244;m d&#226;y cao su - Ch&#237;nh h&#227;ng VN/A"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="smartwatch/apple-watch-se-gps-44mm-aluminum-case-with-sport-band-chinh-hang-vn-a.html">Apple Watch SE (GPS) 44mm - Viền nh&#244;m d&#226;y cao su - Ch&#237;nh h&#227;ng VN/A</a>
+                            <span class="price">
+                                <strong>7,390,000 ₫</strong>
+                                <strike>9,990,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/nokia-x10-chinh-hang.html" title="Nokia X10 5G - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/06/24/xx100.png" alt="Nokia X10 5G - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/nokia-x10-chinh-hang.html">Nokia X10 5G - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>5,990,000 ₫</strong>
+                                <strike>7,490,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="robot-hut-bui/robot-hut-bui-xiaomi-vacuum-mop-pro-chinh-hang.html" title="Robot h&#250;t bụi Xiaomi Vacuum Mop Pro - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2020/11/20/vacuum-mop-pro.png" alt="Robot h&#250;t bụi Xiaomi Vacuum Mop Pro - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="robot-hut-bui/robot-hut-bui-xiaomi-vacuum-mop-pro-chinh-hang.html">Robot h&#250;t bụi Xiaomi Vacuum Mop Pro - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>6,990,000 ₫</strong>
+                                <strike>9,990,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/realme-7-pro-chinh-hang.html" title="realme 7 pro - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2020/09/16/Realme%20(7).png" alt="realme 7 pro - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/realme-7-pro-chinh-hang.html">realme 7 pro - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>6,390,000 ₫</strong>
+                                <strike>8,990,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/oppo-reno-5-chinh-hang.html" title="OPPO Reno5 - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/05/10/image-removebg-preview-4.png" alt="OPPO Reno5 - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/oppo-reno-5-chinh-hang.html">OPPO Reno5 - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>7,650,000 ₫</strong>
+                                <strike>8,690,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/oppo-a54-chinh-hang.html" title="OPPO A54 - Ch&#237;nh h&#227;ng"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/04/19/image-removebg-preview-2.png" alt="OPPO A54 - Ch&#237;nh h&#227;ng"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/oppo-a54-chinh-hang.html">OPPO A54 - Ch&#237;nh h&#227;ng</a>
+                            <span class="price">
+                                <strong>4,150,000 ₫</strong>
+                                <strike>4,690,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="dien-thoai-di-dong/iphone-xr-64gb-chinh-hang-vn-a.html" title="Apple iPhone XR - 64GB - Ch&#237;nh h&#227;ng VN/A"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/03/19/iphone-xr.png" alt="Apple iPhone XR - 64GB - Ch&#237;nh h&#227;ng VN/A"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="dien-thoai-di-dong/iphone-xr-64gb-chinh-hang-vn-a.html">Apple iPhone XR - 64GB - Ch&#237;nh h&#227;ng VN/A</a>
+                            <span class="price">
+                                <strong>10,990,000 ₫</strong>
+                                <strike>14,990,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="robot-hut-bui/robot-hut-bui-dreame-d9-chinh-hang-dgw.html" title="Robot h&#250;t bụi Dreame D9 - Ch&#237;nh h&#227;ng:"><img src="~/ContentWeb/i/productlist/ts/Uploads/2021/06/03/image-removebg-preview-12.png" alt="Robot h&#250;t bụi Dreame D9 - Ch&#237;nh h&#227;ng:"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="robot-hut-bui/robot-hut-bui-dreame-d9-chinh-hang-dgw.html">Robot h&#250;t bụi Dreame D9 - Ch&#237;nh h&#227;ng:</a>
+                            <span class="price">
+                                <strong>6,390,000 ₫</strong>
+                                <strike>7,990,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="img">
+                            <a href="cu-sac/sac-nhanh-apple-iphone-20w-type-c-mhje3za-chinh-hang-apple-viet-nam.html" title="Sạc nhanh Apple iPhone 20W Type-C - MHJE3ZA - Ch&#237;nh h&#227;ng Apple Việt Nam"><img src="~/ContentWeb/i/productlist/ts/Uploads/2020/11/09/cu-sac-20w.png" alt="Sạc nhanh Apple iPhone 20W Type-C - MHJE3ZA - Ch&#237;nh h&#227;ng Apple Việt Nam"></a>
+                        </div>
+                        <div class="info">
+                            <a class="title" href="cu-sac/sac-nhanh-apple-iphone-20w-type-c-mhje3za-chinh-hang-apple-viet-nam.html">Sạc nhanh Apple iPhone 20W Type-C - MHJE3ZA - Ch&#237;nh h&#227;ng Apple Việt Nam</a>
+                            <span class="price">
+                                <strong>490,000 ₫</strong>
+                                <strike>890,000 ₫</strike>
+
+                            </span>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,233 @@
+﻿@model List<BanHang.Models.Header>
+@{
+    var user = (BanHang.Models.Account)Session["NameUser"];
+}
+
+<header>
+    <div class="top-navigation">
+        <div class="container">
+            <ul>
+                @foreach (var item in Model)
+                {
+                    <li><i class="fa fa-mail">@item.Email</i></li>
+                    <li><i class="fa fa-money-bill-alt">@item.Phone</i></li>
+                }
+
+                <li><a href="order/check.html">Tra cứu đơn h&#224;ng</a></li>
+                @if (user == null)
+                {
+                    if (@Session["GmailAPI"] != null)
+                    {
+                        <li class="member">
+                            <i class="icon-account"></i> <a class="account"><strong>@Session["GmailAPI"]</strong></a>
+                            <div class="sub">
+                                <ul>
+                                    <li><a href="/account/index"><i class="icon-controls"></i><span>Bảng điều khiển</span></a></li>
+                                    <li><a href="#"><i class="icon-account"></i><span>Thông tin tài khoản</span></a></li>
+                                    <li><a href="/account/order"><i class="icon-order-mgr"></i><span>Đơn hàng của bạn</span></a></li>
+                                    <li><a href="/account/wishlist"><i class="icon-love"></i><span>Sản phẩm yêu thích</span></a></li>
+                                    <li>
+                                        <form action="/Account/LogOff" id="logoutForm" method="post">
+                                            <input type="hidden" name="ReturnUrl" id="ReturnUrl" value="/account/info" />
+                                            <input name="__RequestVerificationToken" type="hidden" value="Zm9MdZ0FaUFSbpNghJTXPAVK429oWZ8238Abigl8ay-uFMq7ol1XQtJm2dR9HZz_5lZ-ZOJM-T6qvHZU_fQg8zaIhSgsowi0C4OiQXu4d8ZiiudTYLj9OLXNCzLKQY9EnOJoLg2" />
+                                            <a href="~/NguoiDung/Logout"><i class="icon-logout"></i><span>Đăng xuất</span></a>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @*<h6 class="modal-btn" for="modal-toggle">Đăng nhập</h6>*@
+
+                            <label class="modal-btn" for="modal-toggle">Đăng nhập</label>
+
+                            <input id="modal-toggle" type="checkbox">
+                            <label class="modal-backdrop" for="modal-toggle"></label>
+                            <div class="modal-content" @*id="modal1"*@>
+                                <label class="modal-close-btn" for="modal-toggle">
+                                    <svg width="30" height="30">
+                                        <line x1="5" y1="5" x2="20" y2="20" />
+                                        <line x1="20" y1="5" x2="5" y2="20" />
+                                    </svg>
+                                </label>
+                                <div class="container" id="modal1">
+                                    <div class="login-form">
+
+                                        <div class="form">
+                                            <h1 style="color:red">Đăng nhập</h1>
+                                            <div class="external">
+                                                <div>
+                                                    <button class="btn-extlogin btn-facebook" title="Đăng nhập qua Facebook" type="submit" id="Facebook" name="provider" value="Facebook"><img src="~/ContentWeb/Content/web/img/login-facebook.png" /> Tiếp tục với Facebook</button>
+                                                    <button class="btn-extlogin btn-google" type="submit" title="Đăng nhập qua Google+" id="googleplus" @*name="provider"*@ @*value="Google"*@><img src="~/ContentWeb/Content/web/img/login-google.png" /> Đăng nhập với Google</button>
+                                                </div>
+                                                @*<form method="post" action="#">
+                                <button class="btn-extlogin btn-facebook" title="Đăng nhập qua Facebook" type="submit" id="Facebook" name="provider" value="Facebook"><img src="~/ContentWeb/Content/web/img/login-facebook.png" /> Tiếp tục với Facebook</button>
+                                <button class="btn-extlogin btn-google" type="submit" title="Đăng nhập qua Google+" id="googleplus" name="provider" value="Google"><img src="~/ContentWeb/Content/web/img/login-google.png" /> Đăng nhập với Google</button>
+                            </form>*@
+                                            </div>
+
+                                            <div class="split">
+                                                <p>Hoặc</p>
+                                            </div>
+
+                                            <div class="internal">
+
+
+                                                <form method="post" action="#">
+
+                                                    <div class="row">
+                                                        <label style="color:black">Tên Đăng Nhập :</label>
+                                                        <div @*class="input"*@>
+                                                            <input type="text" name="UserName" id="txtAccount" placeholder="Tên đăng nhập hoặc email" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <label style="color:black">Mật Khẩu :</label>
+                                                        <div @*class="input"*@>
+                                                            <input type="password" name="password" id="txtPassword" placeholder="Mật khẩu" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <label class="checkbox-ctn" style="color:black">
+                                                            Nhớ đăng nhập
+                                                            <input type="checkbox" name="RememberMe" value="RememberMe">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="button-group">
+                                                            <button onclick="Login()" class="btn btn-submit" type="button">ĐĂNG NHẬP</button>
+                                                            <a class="btn btn-link " href="~/NguoiDung/Register">ĐĂNG KÝ</a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <p class="forgotpass"><a class="" href="/Account/ForgotPassword">Quên mật khẩu?</a></p>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+
+                        <li><a href="~/NguoiDung/Register">Đăng ký</a></li>
+                    }
+
+
+
+                }
+                else
+                {
+                    <li class="member">
+                        <i class="icon-account"></i> <a class="account"><strong>@user.AccountName</strong></a>
+                        <div class="sub">
+                            <ul>
+                                <li><a href="/account/index"><i class="icon-controls"></i><span>Bảng điều khiển</span></a></li>
+                                <li><a href="@Url.Action("profile","NguoiDung",new { id = user.ID})"><i class="icon-account"></i><span>Thông tin tài khoản</span></a></li>
+                                <li><a href="@Url.Action("Order","NguoiDung",new { id = user.ID})"><i class="icon-order-mgr"></i><span>Đơn hàng của bạn</span></a></li>
+                                <li><a href="/account/wishlist"><i class="icon-love"></i><span>Sản phẩm yêu thích</span></a></li>
+                                <li>
+                                    <form action="/Account/LogOff" id="logoutForm" method="post">
+                                        <input type="hidden" name="ReturnUrl" id="ReturnUrl" value="/account/info" />
+                                        <input name="__RequestVerificationToken" type="hidden" value="Zm9MdZ0FaUFSbpNghJTXPAVK429oWZ8238Abigl8ay-uFMq7ol1XQtJm2dR9HZz_5lZ-ZOJM-T6qvHZU_fQg8zaIhSgsowi0C4OiQXu4d8ZiiudTYLj9OLXNCzLKQY9EnOJoLg2" />
+                                        <a href="~/NguoiDung/Logout"><i class="icon-logout"></i><span>Đăng xuất</span></a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                }
+
+
+            </ul>
+        </div>
+    </div>
+</header>
+<script type="text/javascript">
+    function Login() {
+        var AccountName = document.getElementById("txtAccount").value;
+        var Password = document.getElementById("txtPassword").value;
+        var jsData = "{AccountName: '" + AccountName + "', Password : '" + Password + "'}";
+        alert(jsData);
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("Login","NguoiDung")',
+            contentType: "application/json; charset=utf-8",
+            data: jsData,
+            dataType: "json",
+            success: function (result) {
+                if (result == true) {
+                    window.location = "/Home/Index";
+                }
+                else {
+                    alert("Tên đăng nhập hặc mật khẩu không chính xác");
+                }
+            }
+        });
+    }
+</script>
+<script src="https://apis.google.com/js/api:client.js"></script>
+
+<script>
+        var googleUser = {};
+        var startAppA = function () {
+            gapi.load('auth2', function () {
+                //Retrieve the singleton for the GoogleAuth library and set up the client.
+                auth2 = gapi.auth2.init({
+                    client_id: '73723579209-l8oujf8ardqhtcpmpunfmjbtbq68m6h9.apps.googleusercontent.com',
+                    secret_key: 'Fj1b7kKgxpjf2w_l8Q3MCnxN',
+                    cookiepolicy: 'single_host_origin',
+                });
+                attachSignin(document.getElementById('googleplus'));
+            });
+        };
+
+        function attachSignin(element) {
+            auth2.attachClickHandler(element, {},
+                function (googleUser) {
+                    //debugger;
+                    $(".se-pre-con").show();
+                    console.log(googleUser);
+                    var profiles = googleUser.getBasicProfile();
+                    var ReturnUrl = 'http://localhost:59630/Login/ReturnURL';
+                    alert("X");
+                    var objData = {
+                        Email: profiles.getEmail(),
+                        LastName: profiles.getFamilyName(),
+                        FirstName: profiles.getGivenName(),
+                        GoogleID: profiles.getId(),
+                        ProfileURL: profiles.getName(),
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("ReturnURL", "NguoiDung")',
+                        data: objData,
+                        datatype: "json",
+                        success: function (data) {
+                            alert("Successfully Done");
+                            window.location.href = "/Home/Index";
+                        }
+                    });
+                    $(".se-pre-con").hide();
+
+                }, function (error) {
+                    //alert(JSON.stringify(error, #ff0000, 2));
+                });
+            }
+            startAppA();
+</script>
+
+
+
+

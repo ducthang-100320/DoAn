@@ -1,0 +1,86 @@
+﻿ <!-- logo and search box -->
+<div class="heading">
+    <div class="container">
+        <div class="logo">
+            <a href="/Home/Index" title="C&#212;NG TY CỔ PHẦN X&#194;Y DỰNG V&#192; ĐẦU TƯ THƯƠNG MẠI HO&#192;NG H&#192;">
+                <img src="~/ContentWeb/web/img/logo-text.png" alt="C&#212;NG TY CỔ PHẦN X&#194;Y DỰNG V&#192; ĐẦU TƯ THƯƠNG MẠI HO&#192;NG H&#192;">
+            </a>
+        </div>
+
+        <div class="search-box">
+            <form method="get" action="#" onsubmit="return submitSearch(this);" enctype="application/x-www-form-urlencoded">
+                <div class="border">
+                    <input type="text" id="kwd" name="kwd" placeholder="Bạn cần tìm gì?" />
+                    <button type="submit" class="search"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+
+        <div class="order-tools">
+            <div class="item check-order">
+                <a id="btnCheckOrder" href="order/check.html">
+                    <span class="icon"><i class="icon-truck"></i></span>
+                    <span class="text">Kiểm tra đơn hàng</span>
+                </a>
+            </div>
+            <div class="item cart">
+                <!-- LocalStorage -->
+                <a href="~/Cart/Index2"><i class="icon-cart"></i><label><i class="icon-left"></i><span id="txtTotalCart"></span></label></a>
+                <!--End LocalStorage -->
+                <!-- SessionStorage -->
+                @*@if (@Session["TotalProduct"] != null)
+                    {
+                        <a href="~/Cart/Index"><i class="icon-cart"></i><label><i class="icon-left"></i><span id="txtTotalCart">@Session["TotalProduct"]</span></label></a>
+                    }
+                    else
+                    {
+                        <a href="~/Cart/Index"><i class="icon-cart"></i><label><i class="icon-left"></i><span>0</span></label></a>
+                    }*@
+                <!--End SessionStorage -->
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End logo and search box -->
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+        var Cart = [];
+        function Addpro(id, name , price , promotionprice, image) {
+            var Product = { ID: id, Quantity: 1, Name: name, Price: price, PromotionPrice: promotionprice, Image: image };
+            if (window.localStorage) {
+                Cart = JSON.parse(window.localStorage.getItem("giohang"));
+            }
+            if (Cart != null && Cart.length > 0) {
+                document.getElementById("txtTotalCart").innerHTML = Cart.length;
+            }
+            else {
+                document.getElementById("txtTotalCart").innerHTML = 0;
+            }
+            if (Cart != null && Cart.length > 0) {
+                // Đã có giỏ hàng
+                var bResult = false;
+                for (var i in Cart) {
+                    if (Cart[i].ID.toString() == id) {
+                        Cart[i].Quantity = Cart[i].Quantity + 1;
+                        bResult = true;
+                        alert("Sản phẩm đã được thêm vào giỏ hàng. Vui lòng kiểm tra giỏ hàng để thanh toán");
+                        break;
+
+                    }
+                }
+                if (bResult == false) {
+                    Cart.push(Product);
+                    alert("Sản phẩm đã được thêm vào giỏ hàng. Vui lòng kiểm tra giỏ hàng để thanh toán");
+                }
+            }
+            else {
+                // Chưa có giỏ hàng
+                Cart = [];
+                Cart.push(Product);
+                alert("Sản phẩm đã được thêm vào giỏ hàng. Vui lòng kiểm tra giỏ hàng để thanh toán");
+            }
+            window.localStorage.setItem("giohang", JSON.stringify(Cart));
+            document.getElementById("txtTotalCart").innerHTML = Cart.length;
+        }
+</script>

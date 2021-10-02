@@ -1,0 +1,74 @@
+﻿@model IEnumerable<BanHang.Models.Menu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    int STT = 0;
+}
+
+<link rel="stylesheet" type="text/css"
+      href="~/Areas/Admin/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">
+<link rel="stylesheet" type="text/css"
+      href="~/Areas/Admin/assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css">
+<div class="row">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Danh Sách Tài Khoản Thanh Toán</h4>
+                <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><a href="@Url.Action("Create","Menu")">Thêm mới</a> </button>
+                @*<h6 class="card-subtitle">Data table example</h6>*@
+                <div class="table-responsive m-t-40">
+                    <table id="myTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên danh mục</th>
+                                <th>Cấp danh mục</th>
+                                <th>Trạng thái</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                STT++;
+                                <tr>
+                                    <td>
+                                        @STT
+                                    </td>
+                                    <td>
+                                        @item.Name
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Level)
+                                    </td>
+                                    <td>
+                                        @if (item.Status == 1)
+                                        {
+                                            <span>Đang hoạt động</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Ngừng hoạt động</span>
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Sủa", "Edit", new { id = item.ID }) |
+                                        @Html.ActionLink("Chi tiết", "Details", new { id = item.ID }) |
+                                        @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script src="~/Content/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>

@@ -1,0 +1,626 @@
+﻿@model BanHang.Models.ProductView
+
+@{
+    ViewBag.Title = "Details2";
+    Layout = "~/Views/Shared/LayoutWeb.cshtml";
+    decimal? giamgia = Model._ProductPrice.Price - Model._ProductPrice.PromotionPrice;
+
+}
+
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from hoanghamobile.com/dien-thoai-di-dong/apple-iphone-12-pro-128gb-chinh-hang-vn-a by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Aug 2021 10:08:30 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+
+    @*<script>
+            window.insider_object.product = { "id": "795", "name": "Apple iPhone 12 Pro - 128GB - Chính hãng VN/A", "taxonomy": ["iPhone 12 series", "iPhone 12 Pro"], "currency": "VND", "unit_price": 3.099E+07, "unit_sale_price": 2.589E+07, "url": "https://hoanghamobile.com/dien-thoai-di-dong/apple-iphone-12-pro-128gb-chinh-hang-vn-a", "stock": 643, "color": "Black", "size": "", "product_image_url": "https://hoanghamobile.com/Uploads/2021/02/25/iphone-12-pro.png", "custom": { "merchandiser": "hoanghamobile" } };
+        </script>*@
+
+</head>
+<body>
+
+    <div class="mobile-wrapper">
+        <div class="body-content">
+
+            <section>
+                <div class="container scroll">
+                    <ol class="breadcrumb scroll-x" itemscope itemtype="http://schema.org/BreadcrumbList">
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a itemprop="item" href="../index.html"><span itemprop="name" content="Trang chủ"><i class="icon-home" title="Trang chủ"></i> Trang chủ</span></a>
+                            <meta itemprop="position" content="1" />
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a itemprop="item" href="../dien-thoai-di-dong.html"><span itemprop="name" content="Điện thoại">Điện thoại</span></a>
+                            <meta itemprop="position" content="2" />
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a itemprop="item" href="iphone.html"><span itemprop="name" content="iPhone">iPhone</span></a>
+                            <meta itemprop="position" content="3" />
+                        </li>
+                        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                            <a itemprop="item" href="apple-iphone-12-pro-128gb-chinh-hang-vn-a.html" title="Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A" class="actived"><span itemprop="name" content="Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A">@Model._Product.Name</span></a>
+                            <meta itemprop="position" content="5" />
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section>
+
+                <div class="container">
+                    <div class="product-details">
+                        <div class="top-product">
+                            <h1>
+                                @Model._Product.Name
+                            </h1>
+
+                        </div>
+
+                        <div class="product-details-container">
+                            <div class="product-image">
+
+                                @*<div class="love-this-button">
+                                        <a title="Thêm vào sản phẩm yêu thích" href="javascript:wishProduct(795, false)"><i class="icon-love"></i></a>
+                                    </div>*@
+
+                                <div id="imagePreview">
+                                    <!-- Loading Screen -->
+                                    <div data-u="loading" class="loading">
+                                        <div class="filter"></div>
+                                        <div class="load-bg"></div>
+                                    </div>
+
+                                    <div data-u="slides" class="viewer">
+                                        <div>
+                                            <a data-fancybox="gallery" rel="group" href="#"><img data-u="image" src="~/ContentWeb/i/productlist/dsp/Uploads/2020/11/06/iphone-12-pro-max.png" title="" alt="" /></a>
+                                            <div data-u="thumb">
+                                                <img class="i" src="~/ContentWeb/i/productlist/dst/Uploads/2020/11/06/iphone-12-pro-max.png" id="txtImage" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <a data-fancybox="gallery" rel="group" href="../i/preview/Uploads/2020/11/06/iphone-12-pro-max-2.png"><img data-u="image" src="~/ContentWeb/i/productlist/dsp/Uploads/2020/11/06/iphone-12-pro-max-2.png" title="Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A Blue" alt="Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A Blue" /></a>
+                                            <div data-u="thumb">
+                                                <img class="i" src="~/ContentWeb/i/productlist/dst/Uploads/2020/11/06/iphone-12-pro-max-2.png" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <a data-fancybox="gallery" rel="group" href="../i/preview/Uploads/2020/11/06/iphone-12-pro-max-4.png"><img data-u="image" src="~/ContentWeb/i/productlist/dsp/Uploads/2020/11/06/iphone-12-pro-max-4.png" title="Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A Silver" alt="Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A Silver" /></a>
+                                            <div data-u="thumb">
+                                                <img class="i" src="~/ContentWeb/i/productlist/dst/Uploads/2020/11/06/iphone-12-pro-max-4.png" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <a data-fancybox="gallery" rel="group" href="../i/preview/Uploads/2020/11/06/iphone-12-pro-max-3.png"><img data-u="image" src="~/ContentWeb/i/productlist/dsp/Uploads/2020/11/06/iphone-12-pro-max-3.png" title="Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A Gold" alt="Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A Gold" /></a>
+                                            <div data-u="thumb">
+                                                <img class="i" src="~/ContentWeb/i/productlist/dst/Uploads/2020/11/06/iphone-12-pro-max-3.png" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Thumbnail Navigator -->
+                                    <div data-u="thumbnavigator" class="jssort11" data-autocenter="1" data-scale-bottom="0.75">
+                                        <!-- Thumbnail Item Skin Begin -->
+
+                                        <div class="bg-shadow" style="top: 0;left: -26px;width: 365px;height: 80px;position: absolute;box-shadow: 0px 4px 6px #00000029; border-radius: 8px;"></div>
+                                        <div data-u="slides" style="cursor:pointer;">
+                                            <div data-u="prototype" class="p">
+                                                <div data-u="thumbnailtemplate" class="tp"></div>
+                                            </div>
+                                        </div>
+
+                                        <span class="slider-t-l">
+                                            <i class="icon-right"></i>
+                                        </span>
+                                        <span class="slider-t-r">
+                                            <i class="icon-right"></i>
+                                        </span>
+                                        <!-- Thumbnail Item Skin End -->
+                                    </div>
+
+
+
+                                    <!-- Arrow Navigator -->
+                                    <span data-u="arrowleft" class="slider-l" data-autocenter="2">
+                                        <i class="icon-left"></i>
+                                    </span>
+                                    <span data-u="arrowright" class="slider-r" data-autocenter="2">
+                                        <i class="icon-right"></i>
+                                    </span>
+
+                                </div>
+                            </div>
+
+                            <div class="product-center">
+                                <p class="price current-product-price">
+                                    @if (Model._ProductPrice.PromotionPrice > 0)
+                                    {
+                                        <strong>
+                                            @Model._ProductPrice.PromotionPrice.Value.ToString("N0") đ
+                                        </strong>
+                                        <i>Giá Niêm Yết: <strike>@Model._ProductPrice.Price.Value.ToString("N0") đ</strike></i>
+                                    }
+                                    else
+                                    {
+                                        <strong>
+                                            @Model._ProductPrice.Price.Value.ToString("N0") đ
+                                        </strong>
+                                    }
+
+                                </p>
+                                <p class="freeship">
+                                    <i class="icon-freeship-truck"></i>
+                                    <span>Miễn phí vận chuyển toàn quốc</span>
+                                </p>
+
+                                <div class="product-option version">
+                                    <strong class="label">Lựa chọn phiên bản</strong>
+                                    <div class="options" id="versionOption">
+                                        <div data-sku="IPH12P128B" class="item selected">
+                                            <a href="apple-iphone-12-pro-128gb-chinh-hang-vn-a.html">
+                                                <span><label><strong>128GB</strong></label></span>
+                                                <strong>25,890,000 ₫</strong>
+                                            </a>
+                                        </div>
+                                        <div data-sku="IPH12P256B" class="item ">
+                                            <a href="apple-iphone-12-pro-256gb-chinh-hang-vn-a.html">
+                                                <span><label><strong>256GB</strong></label></span>
+                                                <strong>27,890,000 ₫</strong>
+                                            </a>
+                                        </div>
+                                        <div data-sku="IPH12P512B" class="item ">
+                                            <a href="apple-iphone-12-pro-512gb-chinh-hang-vn-a.html">
+                                                <span><label><strong>512GB</strong></label></span>
+                                                <strong>30,990,000 ₫</strong>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="product-option color">
+                                    <strong class="label">Lựa chọn màu và xem địa chỉ còn hàng</strong>
+                                    <div class="options" id="colorOptions">
+                                        <div data-name="Black" data-pricenote="" data-buyonline="true" data-bestPrice="25,890,000 ₫" data-lastPrice="30,990,000 ₫" data-idx="0" data-hex="#000000" data-title="Đen" data-id="1" data-sku="IPH12P128B" class="item selected">
+                                            <span><label><strong>@Model._ProductPrice.Color</strong></label></span>
+                                            <strong>@Model._ProductPrice.PromotionPrice ₫</strong>
+                                            <div class="colorGuide" style="background:#000000">
+                                                <label><strong>@Model._ProductPrice.Color</strong></label>
+                                            </div>
+                                        </div>
+                                        <div data-name="Blue" data-pricenote="" data-buyonline="true" data-bestPrice="26,190,000 ₫" data-lastPrice="30,990,000 ₫" data-idx="1" data-hex="#2071fc" data-title="Xanh da trời" data-id="2" data-sku="IPH12P128E" class="item ">
+                                            <span><label><strong>Blue</strong></label></span>
+                                            <strong>26,190,000 ₫</strong>
+                                            <div class="colorGuide" style="background:#2071fc">
+                                                <label><strong>Xanh da trời</strong></label>
+                                            </div>
+                                        </div>
+                                        <div data-name="Silver" data-pricenote="" data-buyonline="true" data-bestPrice="26,190,000 ₫" data-lastPrice="30,990,000 ₫" data-idx="2" data-hex="#d6d6d6" data-title="" data-id="6" data-sku="IPH12P128S" class="item ">
+                                            <span><label><strong>Silver</strong></label></span>
+                                            <strong>26,190,000 ₫</strong>
+                                            <div class="colorGuide" style="background:#d6d6d6">
+                                                <label><strong>Silver</strong></label>
+                                            </div>
+                                        </div>
+                                        <div data-name="Gold" data-pricenote="" data-buyonline="true" data-bestPrice="26,190,000 ₫" data-lastPrice="30,990,000 ₫" data-idx="3" data-hex="#f5dfc7" data-title="" data-id="8" data-sku="IPH12P128G" class="item ">
+                                            <span><label><strong>Gold</strong></label></span>
+                                            <strong>26,190,000 ₫</strong>
+                                            <div class="colorGuide" style="background:#f5dfc7">
+                                                <label><strong>Gold</strong></label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="product-promotion">
+                                    <strong class="label">KHUYẾN MÃI</strong>
+                                    <ul>
+
+                                        <li>
+                                            <span class="bag">KM 1</span>
+                                        </li>
+                                        <li>
+                                            Giảm th&#234;m 1.000.000đ khi thu cũ, đổi mới l&#234;n đời iPhone 12 Series | iPhone 11 |iPhone XR
+                                            - (
+                                            <a href="../dat-hang/thu-cu-len-doi-iphone-chinh-hang-vn-a.html">Xem chi tiết</a>)
+                                        </li>
+                                        <li>
+                                            <span class="bag">KM 2</span>
+                                        </li>
+                                        <li>
+                                            Khuyến m&#227;i mua k&#232;m: Sạc Anker 1 cổng, c&#244;ng suất 20W PowerPort III Nano, hỗ trợ sạc nhanh USB-C Power Delivery - A2633 chỉ với gi&#225; 320.000đ
+                                            - (
+                                            <a href="../cu-sac/sac-nhanh-anker-1-cong-powerport-iii-nano-20w-a2633-chinh-hang.html">Xem chi tiết</a>)
+                                        </li>
+                                        <li>
+                                            <span class="bag">KM 3</span>
+                                        </li>
+                                        <li>
+                                            Khuyến m&#227;i mua th&#234;m: Sạc nhanh Apple iPhone 20W Type-C - Ch&#237;nh h&#227;ng với gi&#225; chỉ 490.000đ
+                                            - (
+                                            <a href="../cu-sac/sac-nhanh-apple-iphone-20w-type-c-mhje3za-chinh-hang-apple-viet-nam.html">Xem chi tiết</a>)
+                                        </li>
+                                        <li>
+                                            <span class="bag">KM 4</span>
+                                        </li>
+                                        <li>
+                                            Giảm 300.000đ khi mua c&#249;ng sản phẩm bộ ph&#225;t wifi M7200 v&#224; M7350
+                                            - (
+                                            <a href="../phu-kien/bo-phat-wifi.html">Xem chi tiết</a>)
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="product-action">
+                                    <a title="Mua ngay" @*data-sku="IPH12P128B"*@ href="#" class="btn-red btnQuickOrder btnbuy"><strong>MUA NGAY</strong><span> Trả tiền khi nhận hàng (COD)</span></a>
+                                    <a onclick="Addpro(@Model._Product.ID,'@Model._Product.Name',@Model._ProductPrice.Price,@Model._ProductPrice.PromotionPrice,'@Model._Product.Image')" title="Thêm vào giỏ hàng" class=" btn-orange btnbuy btn-icon"><i class="icon-cart"></i><span class="cart-plus">+</span></a>
+                                    @*<button onclick="Addpro(1)">Thêm vào giỏ hàng</button>*@
+                                </div>
+                            </div>
+                            @*<button onclick="AddCart(1)">Thêm vào giỏ hàng</button>*@
+                            <div class="product-shop">
+
+
+                                <div class="check-stock" id="marketFilter">
+                                    <div class="city">
+                                        <p>Thông số kỹ thuật sản phẩm</p>
+                                    </div>
+
+                                    <div class="store">
+                                        @*<ul>
+                                               <li class="instock city_59" data-sku='["IPH12M256B","IPH12M256E","IPH12M256G","IPH12M256S"]'><span>221 Đường 3 Th&#225;ng 2 - Ninh Kiều - Cần Thơ <a title="221 Đường 3/2 - TP Cần Thơ" href="../221-duong-3-thang-2-ninh-kieu-can-tho.html">Bản đồ đường đi</a></span></li>
+                                            </ul>*@
+                                        @Html.Raw(@Model._Product.Description)
+
+                                    </div>
+                                </div>
+                                <div class="out-date">
+                                    <p class="title">
+                                        <strong><a href="../kho-san-pham-cu/apple-iphone-12-pro-max-256gb-chinh-hang-vn-a-p9833.html">ĐTDĐ @Model._Product.Name</a></strong>
+                                    </p>
+                                    <div class="note">
+                                        <p>
+                                            <i>Giá chỉ từ:</i>
+                                            <strong class="text-red">@Model._ProductPrice.PromotionPrice ₫</strong>
+                                        </p>
+                                        <p>
+                                            <i>Tiết kiệm:</i>
+                                            <strong class="text-red">@giamgia đ</strong>
+                                        </p>
+                                        Bảo hành chính hãng. Bao xài đổi lỗi trong 15 ngày
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="full-width-content">
+                        <div class="product-combo">
+                            <div class="header">
+                                <h3>Ưu đãi khi mua cùng @Model._Product.Name</h3>
+                            </div>
+
+                            <div class="scroll">
+                                <div class="lts-product lts-product-combo scroll-x" data-obj="a.title">
+
+                                    <div class="item source">
+
+                                        <div class="img">
+                                            <a href="apple-iphone-12-pro-128gb-chinh-hang-vn-a.html" title="Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A">
+                                                <img src="~/ContentWeb/i/productlist/ts/Uploads/2021/02/25/iphone-12-pro.png" alt="Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A" title="Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A">
+                                            </a>
+                                        </div>
+                                        <div class="info">
+                                            <a href="apple-iphone-12-pro-128gb-chinh-hang-vn-a.html" class="title" title="Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A">Apple iPhone 12 Pro - 128GB - Ch&#237;nh h&#227;ng VN/A</a>
+                                            <span class="price current-product-price">
+                                                <strong>25,890,000 ₫</strong>
+                                                <strike>30,990,000 ₫</strike>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="combo-add">
+                                        <span>+</span>
+                                    </div>
+                                    <div class="item destination">
+
+
+                                        <div class="img">
+                                            <a href="../cu-sac/sac-nhanh-anker-1-cong-powerport-iii-nano-20w-a2633-chinh-hang.html" title="Sạc nhanh Anker 1 cổng - PowerPort III Nano - 20w A2633 - Ch&#237;nh h&#227;ng">
+                                                <img src="~/ContentWeb/i/productlist/ts/Uploads/2020/12/03/111.png" alt="Sạc nhanh Anker 1 cổng - PowerPort III Nano - 20w A2633 - Ch&#237;nh h&#227;ng" title="Sạc nhanh Anker 1 cổng - PowerPort III Nano - 20w A2633 - Ch&#237;nh h&#227;ng">
+                                            </a>
+                                        </div>
+
+                                        <div class="info">
+                                            <a href="apple-iphone-12-pro-128gb-chinh-hang-vn-a.html" class="title" title="Sạc nhanh Anker 1 cổng - PowerPort III Nano - 20w A2633 - Ch&#237;nh h&#227;ng">Sạc nhanh Anker 1 cổng - PowerPort III Nano - 20w A2633 - Ch&#237;nh h&#227;ng</a>
+                                            <span class="price"><strong>350,000 ₫ &nbsp;</strong></span>
+                                        </div>
+                                        <div class="button">
+                                            <a class="add-cart" data-colorid="0" href="javascript:;" data-sku="SAK20"><span>Thêm vào giỏ hàng</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="combo-add">
+                                        <span>+</span>
+                                    </div>
+                                    <div class="item destination">
+
+
+                                        <div class="img">
+                                            <a href="../cu-sac/sac-nhanh-apple-iphone-20w-type-c-mhje3za-chinh-hang-apple-viet-nam.html" title="Sạc nhanh Apple iPhone 20W Type-C - MHJE3ZA - Ch&#237;nh h&#227;ng Apple Việt Nam">
+                                                <img src="~/ContentWeb/i/productlist/ts/Uploads/2020/11/09/cu-sac-20w.png" alt="Sạc nhanh Apple iPhone 20W Type-C - MHJE3ZA - Ch&#237;nh h&#227;ng Apple Việt Nam" title="Sạc nhanh Apple iPhone 20W Type-C - MHJE3ZA - Ch&#237;nh h&#227;ng Apple Việt Nam">
+                                            </a>
+                                        </div>
+
+                                        <div class="info">
+                                            <a href="apple-iphone-12-pro-128gb-chinh-hang-vn-a.html" class="title" title="Sạc nhanh Apple iPhone 20W Type-C - MHJE3ZA - Ch&#237;nh h&#227;ng Apple Việt Nam">Sạc nhanh Apple iPhone 20W Type-C - MHJE3ZA - Ch&#237;nh h&#227;ng Apple Việt Nam</a>
+                                            <span class="price"><strong>490,000 ₫ &nbsp;</strong></span>
+                                        </div>
+                                        <div class="button">
+                                            <a class="add-cart" data-colorid="0" href="javascript:;" data-sku="AIP20W"><span>Thêm vào giỏ hàng</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- news -->
+            <section>
+                <div class="container">
+                    <div class="news-home box-home">
+                        <div class="header">
+                            <h4>
+                                <a href="../tin-tuc/index.html">TIN TỨC LIÊN QUAN</a>
+                            </h4>
+                        </div>
+                        <div class="scroll">
+                            <div class="col-content scroll-x">
+                                <div class="item">
+                                    <div class="img">
+                                        <a href="../tin-tuc/dat-hang/apple-airpods-pro.html"><img src="~/ContentWeb/tin-tuc/wp-content/uploads/2019/11/FB-Check-Text-Airpods-Pro-01-150x150.jpg"></a>
+                                    </div>
+                                    <p>
+                                        <a href="../tin-tuc/dat-hang/apple-airpods-pro.html">Đặt trước Apple AirPods Pro ch&#237;nh h&#227;ng VN/A, gi&#225; chỉ hơn 6 triệu</a>
+                                        <br />
+                                        <i>06-11-2019</i>
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <div class="img">
+                                        <a href="../tin-tuc/apple-ra-mat-iphone-12-pro-chinh-thuc.html"><img src="~/ContentWeb/tin-tuc/wp-content/uploads/2020/10/5184754_cover_12pro-150x150.jpg"></a>
+                                    </div>
+                                    <p>
+                                        <a href="../tin-tuc/apple-ra-mat-iphone-12-pro-chinh-thuc.html">[CH&#205;NH THỨC] Apple ra mắt iPhone 12 Pro v&#224; 12 Pro Max: Thiết kế mới, c&#243; m&#225;y qu&#233;t LiDAR, hỗ trợ 5G</a>
+                                        <br />
+                                        <i>14-10-2020</i>
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <div class="img">
+                                        <a href="../tin-tuc/iphone-12-mini-ngung-san-xuat.html"><img src="~/ContentWeb/tin-tuc/wp-content/uploads/2021/03/A-Series-FB-2-6-150x150.jpg"></a>
+                                    </div>
+                                    <p>
+                                        <a href="../tin-tuc/iphone-12-mini-ngung-san-xuat.html">iPhone 12 Mini ngừng sản xuất, Apple chuyển hướng sang c&#225;c phi&#234;n bản Pro</a>
+                                        <br />
+                                        <i>12-03-2021</i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Coment Product -->
+            <section class="product-review product-comment" id="comments">
+                    <div class="container">
+                        <div class="full-width-content">
+                            <form onsubmit="return replyComment(this)" data-container=".comment-content" data-child="true">
+                                <input name="__RequestVerificationToken" type="hidden" value="dPg16IWxFu9v6L14IlipmhJZ_gCTUCjvxJDFeX9tDVVktGml2d6f4rVcnkjFe4DAoDvNzsV3yzdtCH_0ctmz0-9x9DE1" />
+                                <input type="hidden" name="ModelID" value="795" />
+                                <input type="hidden" name="SystemTypeID" value="3" />
+                                <div class="heading">
+                                    <h3>Bình luận về @Model._Product.Name</h3>
+                                </div>
+                                <div class="rc-form review-form">
+                                    <div class="rc-form comment-form">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="control">
+                                                    <input type="text" name="Title" placeholder="Họ tên *" data-required="1" />
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control">
+                                                    <input type="tel" name="Phone" placeholder="Điện thoại" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col">
+                                                <div class="control">
+                                                    <input type="email" name="Email" placeholder="Email" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="control">
+                                                    <textarea title="Nội dung" placeholder="Nội dung. Tối thiểu 15 ký tự *" name="Content" spellcheck="false" data-required="1" data-minlength="15"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="note">Để gửi bình luận, bạn cần nhập tối thiểu trường họ tên và nội dung</p>
+                                            </div>
+                                            <div class="col col-end">
+                                                <button type="submit"><i class="icon-sending"></i> Gửi bình luận</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div class="review-content comment-content" id="commentContent">
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            <!-- End Coment Product -->
+            <!-- Review Product -->
+            <section class="product-review" id="reviews">
+                    <div class="container">
+                        <div class="full-width-content">
+                            <form id="reviewForm">
+                                <input name="__RequestVerificationToken" type="hidden" value="XIwywYA2fUVl24DdfQDUEhOlYEmI4oBxb3vYnq3ezrio7f8lJB2AXdQR9oiNJyHIVihB0GdZHXC-YfLvb3lxFDkbIZs1" />
+                                <input type="hidden" name="ModelID" value="795" />
+                                <input type="hidden" name="SystemTypeID" value="3" />
+                                <input type="hidden" name="Rate" />
+                                <div class="heading">
+                                    <h3>Đánh giá về @Model._Product.Name</h3>
+                                    <div class="stats">
+                                        <div class="display-rating rating-medium" data-rate-value="2.6"></div>
+
+                                    </div>
+                                </div>
+                                <div class="rc-form review-form">
+                                    <div class="col">
+                                        <div class="control">
+                                            <textarea title="Nội dung" placeholder="Nội dung. Tối thiểu 15 ký tự" name="Content" spellcheck="false" data-required="1" data-minlength="15"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="control">
+                                                <input type="text" name="Title" placeholder="Họ tên" data-required="1" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="control">
+                                                <input type="tel" name="Phone" placeholder="Số điện thoại mua hàng" data-required="1" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="control">
+                                                <input type="email" name="Email" placeholder="Email" data-required="1" />
+                                            </div>
+                                        </div>
+                                        <div class="row row-rate">
+                                            <strong>Đánh giá của bạn: </strong>
+                                            <div class="display-rating rating"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <div class="review-content" id="reviewContent">
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            <!-- End Review Product -->
+            @*<iframe src="#" width="1" height="1" scrolling="no" frameBorder="0" style="display: none;"></iframe>*@
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <div id="popup-modal"></div>
+    <div id="sticker-modal"></div>
+    <div class="search-bg"></div>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var Cart = [];
+        var TotalMoney = 0;
+        function Addpro(id, name, price, promotionprice) {
+            var image = document.getElementById("txtImage").src;
+            var Product = { ID: id, Quantity: 1, Name: name, Price: price, PromotionPrice: promotionprice, Image: image };
+            if (window.localStorage) {
+                Cart = JSON.parse(window.localStorage.getItem("giohang"));
+            }
+            if (Cart != null && Cart.length > 0) {
+                document.getElementById("txtTotalCart").innerHTML = Cart.length;
+
+
+            }
+            else {
+                document.getElementById("txtTotalCart").innerHTML = 0;
+            }
+            if (Cart != null && Cart.length > 0) {
+                // Đã có giỏ hàng
+                var bResult = false;
+                for (var i in Cart) {
+                    if (Cart[i].ID.toString() == id) {
+                        Cart[i].Quantity = Cart[i].Quantity + 1;
+
+                        bResult = true;
+                        alert("Sản phẩm đã được thêm vào giỏ hàng. Vui lòng kiểm tra giỏ hàng để thanh toán");
+                        break;
+
+                    }
+                }
+                if (bResult == false) {
+                    Cart.push(Product);
+                    alert("Sản phẩm đã được thêm vào giỏ hàng. Vui lòng kiểm tra giỏ hàng để thanh toán");
+                }
+            }
+            else {
+                // Chưa có giỏ hàng
+                Cart = [];
+                Cart.push(Product);
+                alert("Sản phẩm đã được thêm vào giỏ hàng. Vui lòng kiểm tra giỏ hàng để thanh toán");
+            }
+            window.localStorage.setItem("giohang", JSON.stringify(Cart));
+            document.getElementById("txtTotalCart").innerHTML = Cart.length;
+        }
+
+    </script>
+
+
+
+
+
+    <script src="~/ContentWeb/js-css/mobile_v1.0.9.9.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            imagePreview_init();
+            setProductContentHeighWithSpecs();
+
+            compareAutocomplete(
+                {
+                    template: '/so-sanh/apple-iphone-12-pro-128gb-chinh-hang-vn-a-ss.795',
+                    ptype: 1,
+                    ignore: 795
+
+                });
+            updateViewProduct(795);
+
+            productDetails();
+        });
+    </script>
+</body>
+</html>

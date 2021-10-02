@@ -1,0 +1,73 @@
+﻿@model BanHang.Models.Menu
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Create", "Menu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Thêm Mới Danh Mục Sản Phẩm</h5>
+        </div>
+        <div class="card-body table-border-style">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Tên danh mục: <span class="label-required">*</span></label>
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Số tài khoản: <span class="label-required">*</span></label>
+                        @Html.EditorFor(model => model.Level, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Level, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Sắp xếp: <span class="label-required">*</span></label>
+                        @Html.EditorFor(model => model.OrderNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.OrderNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Trạng thái: <span class="label-required"></span></label>
+                        <select id="inputState" class="form-control" name="cboStatus">
+
+                            <option value="0" selected>Không hoạt động</option>
+                            <option value="1" selected>Đang hoạt động</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label>Đường dẫn URL: <span class="label-required">*</span></label>
+                        @Html.EditorFor(model => model.URL, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.URL, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="form-group" style="margin-top: .5rem;">
+                        <br />
+                        <input type="submit" value="Ghi dữ liệu" class="btn btn-primary" />
+                        @Html.ActionLink("Quay lại", "Index")
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

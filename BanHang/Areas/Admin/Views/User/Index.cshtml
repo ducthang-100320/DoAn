@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BanHang.Models.AccountUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    int STT = 0;
+}
+
+<link rel="stylesheet" type="text/css"
+      href="~/Areas/Admin/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">
+<link rel="stylesheet" type="text/css"
+      href="~/Areas/Admin/assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css">
+<div class="row">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Danh Sách Nhân Viên</h4>
+                <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><a href="@Url.Action("Create","User")">Thêm mới</a> </button>
+        @*<h6 class="card-subtitle">Data table example</h6>*@
+                <div class="table-responsive m-t-40">
+                    <table id="myTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên người dùng</th>
+                                <th>Ảnh</th>
+                                <th> Tên tài Khoản</th>
+                                <th>Số điện thoại</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                STT++;
+                                <tr>
+                                    <td>@STT</td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item._User.UserName)
+                                    </td>
+                                    <td>
+                                        <img src=@item._User.Image class="img-radius mb-1" style="height: 50px; width:50px; border-radius:50%" />
+                                    </td>
+                                    @*<td></td>*@
+                                    <td>
+                                        @item._Account.AccountName
+                                    </td>
+                                    <td>
+                                        @if (item._User.Phone == "")
+                                        {
+                                            <span>Chưa có thông tin</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@item._User.Phone</span>
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item._Account.ID }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item._Account.ID }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item._Account.ID })
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script src="~/Areas/Admin/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>

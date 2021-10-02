@@ -1,0 +1,223 @@
+﻿@model PagedList.IPagedList<BanHang.Models.Product>
+@*@model BanHang.Models.Product*@
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "MobilePhone";
+    Layout = "~/Views/Shared/LayoutWeb.cshtml";
+    
+}
+@{
+    var lstHang = (List<BanHang.Models.Manufacturer>)Session["Hang"];
+    
+}
+
+
+<!doctype html>
+<html>
+
+
+<body>
+    <section>
+        <div class="container">
+            <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" href="/"><span itemprop="name" content="Trang chủ"><i class="icon-home" title="Trang chủ"></i> Trang chủ</span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <i class="fa fa-angle-right"></i> <a itemprop="item" href="/dien-thoai-di-dong" title="Điện thoại di động gi&#225; rẻ, ch&#237;nh h&#227;ng - Ho&#224;ng H&#224; Mobile" class="actived"><span itemprop="name" content="Điện thoại">Điện thoại</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+        </div>
+    </section>
+
+
+    <!-- Lọc sản phẩm -->
+    <section>
+        <div class="container">
+            <div class="product-filters2">
+                <div class="left">
+                    <strong class="label">Lọc danh sách:</strong>
+                    <!-- Lọc theo thương hiệu -->
+                    <div class="facet">
+                        <label>
+                            <a href="javascript:;">Thương hiệu <i class="icon-rightar"></i></a>
+                        </label>
+                        <div class="sub">
+                            <ul>
+                                @foreach (var itemHang in lstHang)
+                                {           
+                                        <li><a href="/dien-thoai-di-dong?filters={&quot;brand&quot;:&quot;20&quot;}&amp;search=true">@itemHang.Name <i class="total">(15)</i></a></li>
+                                }
+                            </ul>
+                            
+
+                        </div>
+                    </div>
+                    <!-- End lọc theo thương hiệu -->
+                    <!-- Lọc theo Giá -->
+                    <div class="facet">
+                        <label>
+                            <a href="javascript:;">Gi&#225; <i class="icon-rightar"></i></a>
+                        </label>
+                        <div class="sub">
+                            <ul>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;price&quot;:&quot;1t&quot;}&amp;search=true">Dưới 1 triệu <i class="total">(21)</i></a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;price&quot;:&quot;1t-2t&quot;}&amp;search=true">1 đến 2 triệu <i class="total">(8)</i></a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;price&quot;:&quot;2t-3t&quot;}&amp;search=true">2 đến 3 triệu <i class="total">(20)</i></a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;price&quot;:&quot;3t-4t&quot;}&amp;search=true">3 đến 4 triệu <i class="total">(13)</i></a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;price&quot;:&quot;4t-5t&quot;}&amp;search=true">4 đến 5 triệu <i class="total">(10)</i></a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;price&quot;:&quot;5t-6t&quot;}&amp;search=true">5 đến 6 triệu <i class="total">(11)</i></a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;price&quot;:&quot;6t-8t&quot;}&amp;search=true">6 đến 8 triệu <i class="total">(12)</i></a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;price&quot;:&quot;8t-10t&quot;}&amp;search=true">8 đến 10 triệu <i class="total">(4)</i></a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;price&quot;:&quot;10t-12t&quot;}&amp;search=true">10 đến 12 triệu <i class="total">(5)</i></a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;price&quot;:&quot;12t-15t&quot;}&amp;search=true">12 đến 15 triệu <i class="total">(7)</i></a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;price&quot;:&quot;15t-20t&quot;}&amp;search=true">15 đến 20 triệu <i class="total">(9)</i></a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;price&quot;:&quot;20t&quot;}&amp;search=true">Tr&#234;n 20 triệu <i class="total">(17)</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End lọc theo Giá -->
+                </div>
+                <!-- Lọc theo sắp xếp -->
+                <div class="right">
+                    <div class="facet">
+                        <label>Sắp xếp <i class="icon-rightar"></i></label>
+                        <div class="sub">
+                            <ul>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;sort&quot;:&quot;1&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Sản phẩm mới - cũ</a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;sort&quot;:&quot;2&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Gi&#225; tốt nhất</a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;sort&quot;:&quot;3&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Gi&#225; cao đến thấp</a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;sort&quot;:&quot;4&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Mới cập nhật</a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;sort&quot;:&quot;5&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Sản phẩm cũ</a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;sort&quot;:&quot;6&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Xem nhiều h&#244;m nay</a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;sort&quot;:&quot;7&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Xem nhiều tuần n&#224;y</a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;sort&quot;:&quot;8&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Xem nhiều th&#225;ng n&#224;y</a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;sort&quot;:&quot;10&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Xem nhiều năm nay</a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;sort&quot;:&quot;9&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Xem nhiều nhất</a></li>
+                                <li><a href="/dien-thoai-di-dong?filters={&quot;sort&quot;:&quot;11&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Kết quả t&#236;m kiếm</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- End lọc theo sắp xếp -->
+            </div>
+        </div>
+    </section>
+    <!-- End lọc sản phẩm -->
+
+    <!-- View Product -->
+    <section>
+        <div class="container">
+
+            <a name="page_1"></a>
+            <div class="list-product">
+                <h1>Điện thoại</h1>
+                <div class="col-content lts-product">
+                    @foreach (var item in Model)
+                    {
+                        decimal? giamgia = item.Price - item.PromotionPrice;
+                        <div class="item">
+
+                            <div class="img">
+                                <a href="@Url.Action("Details","Product", new { id = item.ID})" title="@item.Name">
+                                    <img src="@item.Image" alt="@item.Name" title="@item.Name">
+                                </a>
+                                @if (giamgia < item.Price)
+                                {
+                                    <span class="sales">
+                                        <i class="icon-flash2"></i> Giảm @giamgia.Value.ToString("N0") ₫
+                                    </span>
+                                }
+
+                            </div>
+                            <br />
+                            <div class="info">
+                                <a href="@Url.Action("Details","Product", new { id = item.ID})">@item.Name</a>
+                                @if (giamgia < item.Price)
+                                {
+                                    <span class="price">
+                                        <strong>@(item.PromotionPrice.HasValue? item.PromotionPrice.Value.ToString("N0"): "") đ</strong>
+                                        <strike>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "") đ</strike>
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="price">
+                                        <strong>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "") đ</strong>
+                                    </span>
+                                }
+
+
+                            </div>
+
+                            @if (item.Installment == 1)
+                            {
+                                <div class="note">
+                                    <span class="bag">KM</span> <label title="Hỗ trợ trả g&#243;p 0%">Hỗ trợ trả g&#243;p 0%</label>
+                                </div>
+                                <div class="promote">
+                                    <a href="@Url.Action("Details","Product", new { id = item.ID})">
+                                        <ul>
+                                            <li><span class="bag">KM</span> Hỗ trợ trả g&#243;p 0%</li>
+                                        </ul>
+                                    </a>
+                                </div>
+                            }
+
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+            <div class="pagination">
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+                @Html.PagedListPager(Model, page => Url.Action("MobilePhone", new { page }))
+            </div>
+            <style>
+                .pagination {
+                    display: flex;
+                    padding-left: 0;
+                    list-style: none;
+                    text-decoration: none;
+                    border-radius: .25rem;
+                    font-size: 13px;
+                    border: solid;
+                    justify-content: center;
+                }
+                    .pagination a.active {
+                        background-color: dodgerblue;
+                        color: white;
+                        
+                        /*Thiết kế hình tròn với CSS*/
+                        border-radius: 100%;
+                    }
+                    .pagination a:hover:not(.active) {
+                        background-color: red;
+                        /*Thiết kế hình tròn với CSS*/
+                        border-radius: 100%;
+                    }
+            </style>
+
+            @*<div id="page-holder"></div>*@
+
+
+
+
+        </div>
+    </section>
+    <!--End View Product -->
+
+    <div id="popup-modal"></div>
+    <div id="sticker-modal"></div>
+    <div class="search-bg"></div>
+
+</body>
+</html>
+
+
+
+

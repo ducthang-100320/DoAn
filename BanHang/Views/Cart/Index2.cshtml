@@ -1,0 +1,554 @@
+﻿@model List<BanHang.Models.CartItem>
+
+@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/LayoutWeb.cshtml";
+}
+@{
+
+    int i = 1;
+    decimal Total = 0;
+    BanHang.Models.Voucher Vourcher = null;
+    decimal? a = 0;
+    if (Session["Vourcher"] != null)
+    {
+        Vourcher = (BanHang.Models.Voucher)Session["Vourcher"];
+        a = Vourcher.Price;
+    }
+}
+
+
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Giỏ h&#224;ng</title>
+</head>
+
+<body>
+
+    <section>
+        <div class="container">
+
+            <div class="cart">
+                <div class="header">
+                    <div class="back">
+                        <a href="/">
+                            <i class="icon-leftar"></i>
+                            <strong>Quay lại</strong>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cart-layout">
+
+                    <div class="cart-info" id="cartInfo">
+
+
+
+
+
+                        @*else
+                            {
+
+                                <div class="cart-layout">
+                                    <div class="cart-content">
+                                        <div class="no-items">
+                                            <div class="cart-icon">
+                                                <i class="icon-cart-index"></i>
+                                                <label>Giỏ hàng</label>
+                                            </div>
+                                            <div class="img">
+                                                <img src="~/ContentWeb/Content/web/content-icon/no-item.png" />
+                                                <p><strong>Hiện chưa có sản phẩm nào trong giỏ hàng</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }*@
+
+                    </div>
+
+
+                    <div class="cart-form">
+                        @*<form>*@
+                            
+                            <h3>Thông tin đặt hàng</h3>
+                            <p class="text-gray"><i>Bạn cần nhập đầy đủ các trường thông tin có dấu *</i></p>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="control">
+                                        <input id="txtTitle" name="Title" type="text" placeholder="Họ và tên *" data-required="1" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="control">
+                                        <input id="txtPhone"  name="Phone" type="tel" placeholder="Số điện thoại *" data-required="1" />
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="control">
+                                        <input id="txtAddress" name="Address" type="text" placeholder="Địa chỉ nhận hàng *" data-required="1" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="control">
+                                        <input id="txtEmail"  name="Email" type="email" placeholder="Email" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="control">
+                                        <textarea id="txtNote" name="Note" placeholder="Ghi chú" spellcheck="false" data-minlength="15"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-center">
+                                    <div class="control">
+                                        <input id="txtVourcher" name="Counpon" type="text" onkeyup="Vourcher()" placeholder="Mã giảm giá (Nếu có)" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="control-button">
+                                    <button  onclick="Receiver()">XÁC NHẬN VÀ ĐẶT HÀNG</button>
+                                </div>
+                            </div>
+                        @*</form>*@
+
+                    </div>
+
+                    @*@if (Model != null)
+                        {
+
+                        }
+                        else
+                        {
+
+                        }*@
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <iframe src="https://asia.creativecdn.com/tags?id=pr_n4X0y6ApZyJaHX1dNxQd_basketstatus_1,500,775" width="1" height="1" scrolling="no" frameBorder="0" style="display: none;"></iframe>
+
+
+
+    <footer>
+        <div class="container">
+
+
+
+            <div id="backtoTop">
+                <a id="top" href="javascript:;">
+                    <i class="icon-left"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <div id="popup-modal"></div>
+    <div id="sticker-modal"></div>
+    <div class="search-bg"></div>
+
+
+
+    <!-- analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-1415779-10', 'auto');
+        ga('require', 'GTM-KXZQBMD');
+        ga('require', 'GTM-WPLRWHK');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- analytics -->
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5QM3X2');</script>
+    <!-- End Google Tag Manager -->
+    <!-- subiz -->
+    <script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acqqrmpwwuqeianonpxt")</script>
+    <!-- subiz -->
+    <!-- accesstrade-->
+    <script src="//static.accesstrade.vn/js/trackingtag/tracking.min.js "></script>
+    <script type="text/javascript">
+        AT.init({ "campaign_id": 626, "is_reoccur": 1, "is_lastclick": 1 });
+        AT.track();
+    </script>
+    <!-- accesstrade-->
+
+
+
+    <script src="/js-css/web_v1.0.9.9.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            init_cityChange(0);
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            showSticker(24);
+        });
+    </script>
+
+    
+
+
+    <script type="text/javascript">
+        function Receiver() {
+            var Name = document.getElementById("txtTitle").value;
+            var Phone = document.getElementById("txtPhone").value;
+            var Address = document.getElementById("txtAddress").value;
+            var Email = document.getElementById("txtEmail").value;
+            var Note = document.getElementById("txtNote").value;
+            var jsData = { Name: "  Name  ", Phone: " Phone ", Address: "  Address  ", Email: "  Email  ", Note: " Note " };
+            jsData.Name = Name;
+            jsData.Phone = Phone;
+            jsData.Address = Address;
+            jsData.Email = Email;
+            jsData.Note = Note; 
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("Checkout","Cart")',
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify(jsData),
+                            dataType: "json",
+                            success: function (result) {
+                                if (result == true) {
+                                
+                                    
+                                    window.location = "/Cart/Checkout";
+                                }
+                                else {
+                                    
+                                }
+                            }
+                        });
+            //UpdateProduct();
+        }
+    </script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var Cart = [];
+
+        function RemoveCart2(id) {
+            var Product = { ID: id};
+            if (window.localStorage) {
+                Cart = JSON.parse(window.localStorage.getItem("giohang"));
+                
+            }
+            if (Cart != null && Cart.length > 0) {
+                var index = Cart.findIndex(x => x.ID === id);
+                if (index !== undefined & index !== -1) {
+                    Cart.splice(index, 1);
+                    window.localStorage.setItem("giohang", JSON.stringify(Cart));
+                    alert("Xóa dữ liệu thành công");
+                    window.location = "/Cart/Index2";
+                }
+            }
+            document.getElementById("txtTotalCart").innerHTML = Cart.length;
+        }
+        function PlusCart(id) {
+            var Product = { ID: id};
+            if (window.localStorage) {
+                Cart = JSON.parse(window.localStorage.getItem("giohang"));
+            }
+            
+                for (var i in Cart) {
+                    if (Cart[i].ID.toString() == id) {
+                        Cart[i].Quantity = Cart[i].Quantity + 1;
+                        window.location = "/Cart/Index2";
+                    }
+                }
+                
+            
+            window.localStorage.setItem("giohang", JSON.stringify(Cart));
+            document.getElementById("txtTotalCart").innerHTML = Cart.length;
+            
+        }
+        function MinusCart(id) {
+            var Product = { ID: id };
+            if (window.localStorage) {
+                Cart = JSON.parse(window.localStorage.getItem("giohang"));
+            }
+
+            for (var i in Cart) {
+                if (Cart[i].ID.toString() == id) {
+                    if (Cart[i].Quantity >1) {
+                        Cart[i].Quantity = Cart[i].Quantity - 1;
+                        window.location = "/Cart/Index2";
+                    }
+                    else {
+                        RemoveCart2(id);
+                        window.location = "/Cart/Index2";
+                    }
+                    
+                }
+            }
+
+
+            window.localStorage.setItem("giohang", JSON.stringify(Cart));
+            document.getElementById("txtTotalCart").innerHTML = Cart.length;
+
+        }
+        function AddQuantity(id) {
+            var Product = { ID: id };
+            if (window.localStorage) {
+                Cart = JSON.parse(window.localStorage.getItem("giohang"));
+            }
+            var idProduct = id.replace("txtQuantity_", "");
+            var Quantity = document.getElementById("txtQuantity_" + idProduct.toString()).value;
+            if (Quantity > 100 || Quantity < 0) {
+                alert("Số lượng sản phẩm phải lớn hơn 0 và nhỏ hơn 100"); return;
+            }
+            else {
+                
+
+                for (var i in Cart) {
+                    if (Cart[i].ID.toString() == idProduct) {
+                        
+                            Cart[i].Quantity = Quantity;
+                           
+ 
+
+                    }
+                }
+
+
+                window.localStorage.setItem("giohang", JSON.stringify(Cart));
+                document.getElementById("txtTotalCart").innerHTML = Cart.length;
+                window.location = "/Cart/Index2";
+            }
+            
+
+        }
+        function Vourcher() {
+            //alert("x");
+            var VourcherCode = document.getElementById("txtVourcher").value;
+            //alert(VourcherCode);
+            var Vourcher = document.getElementById("txtVourcherPrice");
+
+            var VourcherPrice = Vourcher.innerHTML.replaceAll("₫", "");
+
+
+            var Total2 = document.getElementById("txtTotalMoney").innerHTML;
+            var Total3 = Total2.replaceAll(",", "");
+            //alert(Total3);
+            var Total = Total3.replace("₫", "");
+
+            var TotalPayment2 = document.getElementById("txtTotalPayment");
+            var TotalPayment3 = TotalPayment2.innerHTML.replaceAll(",", "");
+
+            var TotalPayment = TotalPayment3.replace("₫", "");
+            
+            var jsData = "{VourcherCode: '" + VourcherCode + "'}"; 
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("CheckVourcher","Cart")',
+                            contentType: "application/json; charset=utf-8",
+                            data: jsData,
+                            dataType: "json",
+                            success: function (result) {
+                                if (result != false) {
+                                    var TotalPayment = 0;
+                                    VourcherPrice = result.Price;
+                                    Vourcher.innerHTML = VourcherPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " ₫" ;
+
+                                    TotalPayment = Total - VourcherPrice;
+  
+                                    TotalPayment2.innerHTML = TotalPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " ₫" ;
+                                    
+                                    alert("Mã Vourcher chính xác");
+                                    
+                                }
+                                else {
+                                    alert("Mã Vourcher không chính xác");
+                                    var TotalPayment = 0;
+                                    VourcherPrice = @a;
+                                    Vourcher.innerHTML = VourcherPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " ₫";
+
+                                    TotalPayment = Total - VourcherPrice;
+
+                                    TotalPayment2.innerHTML = TotalPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " ₫";
+                                }
+                            }
+                });
+            
+        }
+
+    </script>
+
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var Cart = [];
+        if (window.localStorage) {
+            Cart = JSON.parse(window.localStorage.getItem("giohang"));
+        }
+            var cartBody = document.getElementById("cartInfo");
+            var TotalMoney = 0;
+            var Total = 0;
+            
+            
+            Cart.map(item => {
+                
+                TotalMoney = parseInt(item.PromotionPrice * parseInt(item.Quantity));
+                Total = Total + TotalMoney;
+                cartBody.innerHTML += `
+                <div class="cart-items">
+                                        <div class="item ">
+                                            <div class="img">
+                                                <img src="${item.Image}" alt="${item.Name}" />
+                                                <p class="title" id="txtName_${item.ID}">${item.Name}</p>
+                                                <p class="price">
+                                                    <i class="icon-flash text-red"></i>
+                                                    <strong id="txtPrice_${item.ID}">${item.PromotionPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} đ</strong>
+
+                                                    <strike>${item.Price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} đ</strike>
+                                                </p>
+                                                <div class="number">
+                                                    <label>Số lượng</label>
+                                                    <div class="control">
+                                                        <p id="txtID_${item.ID}" class="hide">${item.ID}</p>
+                                                        @*<td class="hidden">@item.Id</td>*@
+                                                        <button id="txtMinus_${item.ID}" onclick="MinusCart(${item.ID})">-</button>
+                                                        <input type="text" id="txtQuantity_${item.ID}" onkeyup="AddQuantity(this.id)" value="${item.Quantity}" />
+                                                        <button id="txtPlus_${item.ID}" onclick="PlusCart(${item.ID})" @*data-sku="IPN1164B"*@>+</button>
+
+                                                    </div>
+
+                                                    <p>Tổng: <strong class="price" id="txtTotal_${item.ID}">${TotalMoney.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ₫</strong> </p>
+                                                </div>
+                                            </div>
+
+                                            <div class="info">
+
+                                                <div class="edit">
+
+                                                    <a onclick="RemoveCart2(${item.ID})" class="red"><i class="icon-minutes"></i></a>
+                                                </div>
+
+                                                <div class="promote">
+                                                    <div class="offer-items" id="of_IPN1164B">
+
+
+                                                        <div class="offer">
+                                                            <div class="stt">
+                                                                <label>KM1</label>
+                                                            </div>
+                                                            <div class="offer-border">
+                                                                <div class="content">
+                                                                    <label class="radio-ctn">
+                                                                        <span>Giảm th&#234;m 1.000.000đ khi thu cũ, đổi mới l&#234;n đời iPhone 12 Series | iPhone 11 |iPhone XR</span>
+                                                                        <input checked class="cart-promote" type="radio" name="IPN1164B_promote_g_0_13" value="13">
+                                                                        <span class="checkmark"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="offer">
+                                                            <div class="stt">
+                                                                <label>KM2</label>
+                                                            </div>
+                                                            <div class="offer-border">
+                                                                <div class="content">
+                                                                    <label class="radio-ctn">
+                                                                        <span>Giảm 300.000đ khi mua c&#249;ng sản phẩm bộ ph&#225;t wifi M7200 v&#224; M7350 </span>
+                                                                        <input checked class="cart-promote" type="radio" name="IPN1164B_promote_g_0_385" value="385">
+                                                                        <span class="checkmark"></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="options">
+                                                    <div class="option">
+                                                        <strong>Phiên bản</strong>
+                                                        <label>
+                                                            <i class="icon-checked"></i>
+                                                            <span>64GB</span>
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="option">
+                                                        <strong>Màu sắc</strong>
+                                                        <label>
+                                                            <i class="icon-checked"></i>
+                                                            <span>Black</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                </div>
+
+
+        `
+
+                    ;
+
+            })
+            cartBody.innerHTML += `
+                <div class="cart-total">
+                    <p>Tổng giá trị: <strong class="price" id="txtTotalMoney">${Total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ₫</strong> </p>
+
+                    <p>Giảm giá: <strong class="price" id="txtVourcherPrice"> - ${(@a).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ₫</strong></p>
+                    <p>Tổng thanh toán: <strong class="price text-red" id="txtTotalPayment">${(Total - @a).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ₫</strong></p>
+                    <p><i>Bốn mươi bốn triệu năm trăm bốn mươi ngh&#236;n đồng chẵn.</i></p>
+                    <button class="next">Tiếp tục</button>
+                </div>
+             `
+                ;
+
+
+
+    });
+    </script>
+
+
+
+</body>
+</html>
+

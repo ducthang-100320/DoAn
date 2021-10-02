@@ -1,0 +1,98 @@
+﻿@model List<BanHang.Models.ProductView>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@{
+    var lstLoai = (List<BanHang.Models.Menu>)Session["MenuProduct"];
+    var lstHang = (List<BanHang.Models.Manufacturer>)Session["Hang"];
+    var nameuser = Session["NameUser"] as BanHang.Models.Account;
+
+}
+
+
+
+<link rel="stylesheet" type="text/css"
+      href="~/Areas/Admin/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">
+<link rel="stylesheet" type="text/css"
+      href="~/Areas/Admin/assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css">
+<div class="row">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Danh Sách Sản Phẩm</h4>
+                <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><a href="@Url.Action("Create","ManagerProduct")">Thêm mới</a> </button>
+                @*<h6 class="card-subtitle">Data table example</h6>*@
+                <div class="table-responsive m-t-40">
+                    <table id="myTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Mã Sản phẩm</th>
+                                <th>Ảnh</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Danh mục</th>
+                                <th>Hãng Sản Phẩm</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._Product.Code)
+                                </td>
+                                <td>
+                                    <img src=@item._Product.Image class="img-radius mb-1" style="height: 50px; width:50px; border-radius:50%" />
+                                </td>
+                                <td>
+                                    @if (item._Product.Name.Count() > 0)
+                                    {
+                                        @Html.DisplayFor(modelItem => item._Product.Name)
+                                    }
+
+                                </td>
+                                @foreach (var itemloai in lstLoai)
+                                {
+                                    if (item._Product.MenuID == itemloai.ID)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(modelItem => itemloai.Name)
+                                        </td>
+                                    }
+                                }
+                                @foreach (var itemhang in lstHang)
+                                {
+                                    if (item._Product.ManufacturerID == itemhang.ID)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(modelItem => itemhang.Name)
+                                        </td>
+                                    }
+                                }
+
+
+                                <td>
+                                    @Html.ActionLink("Sủa", "Edit", new { id = item._Product.ID }) |
+                                    @Html.ActionLink("Chi tiết", "Details", new { id = item._Product.ID }) |
+                                    @Html.ActionLink("Xóa", "Delete", new { id = item._Product.ID })
+                                </td>
+                            </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="~/Content/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+
+
+
+
+

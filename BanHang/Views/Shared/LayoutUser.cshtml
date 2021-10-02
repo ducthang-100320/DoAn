@@ -1,0 +1,240 @@
+﻿@*@model BanHang.Models.AccountUser*@
+
+@{
+    ViewBag.Title = "profile";
+}
+
+
+
+<!doctype html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="author" content="hoanghamobile.com">
+    <meta property='og:site_name' content='hoanghamobile.com' />
+    <meta name="google-site-verification" content="JOFGGI7j9vWfBf-xpElM5Tec0UJ1k_CfdNjpaHm5z10" />
+    <meta name="msvalidate.01" content="5C8CDF0992489498A30F9E5F6668A4D5" />
+    <meta name="geo.placename" content="Hanoi, Hoàn Kiếm, Hanoi, Vietnam" />
+    <meta name="geo.position" content="21.017249242314964;105.84134504199028" />
+    <meta name="geo.region" content="VN-Hanoi" />
+    <meta name="ICBM" content="21.017249242314964, 105.84134504199028" />
+
+    <title>Th&#244;ng tin t&#224;i khoản</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preload" href="~/ContentWeb/Content/web/fonts/Segoe UI/Segoe UI.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="~/ContentWeb/Content/web/fonts/Segoe UI/Segoe UI Italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="~/ContentWeb/Content/web/fonts/Segoe UI/Segoe UI Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="~/ContentWeb/Content/web/fonts/Segoe UI/Segoe UI Bold Italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="~/ContentWeb/Content/web/fonts/Segoe UI/Segoe UI Semilight.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="~/ContentWeb/Content/web/fonts/Segoe UI/Segoe UI Semilight Italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="~/ContentWeb/Content/web/fonts/icon/fonts/hoangha.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" as="script" href="~/ContentWeb/js-css/web_v1.0.9.9.js">
+    <link rel="preload" as="style" href="~/ContentWeb/js-css/web_v1.0.9.9.css">
+    <link href="~/ContentWeb/js-css/web_v1.0.9.9.css" rel="stylesheet" type="text/css">
+    <script>
+        window.insider_object = {};
+    </script>
+    <link href="~/ContentWeb/Content/web/css/styles.users.css?c=637646623208165651" rel="stylesheet" />
+
+
+
+    <script>
+        window.insider_object.user = { "uuid": "user_ducthang100320", "gender": "M", "birthday": "", "has_transacted": false, "transaction_count": 0, "gdpr_optin": true, "name": "Vũ Đức Thắng", "surname": "", "username": "ducthang100320", "email": "ducthang100320@gmail.com", "email_optin": true, "phone_number": "0377773870", "sms_optin": true, "language": "vi-VN", "returning": true, "list_id": null };
+    </script>
+
+    <script async src="//hoanghamobilevn.api.useinsider.com/ins.js?id=10005327"></script>
+</head>
+
+<body class="account">
+
+
+    @*@{ Html.RenderAction("Header", "Home");}*@
+
+
+    <form action="/Account/LogOff" id="logoutForm" method="post">
+        <input type="hidden" name="ReturnUrl" id="ReturnUrl" value="/account/info" />
+        <input name="__RequestVerificationToken" type="hidden" value="ni-OIUbrzkDoETbia7UelQz5by8qlr5NybqppJa9rMA4zcsl_zE2ACJucMM5bntPjB6zG1Zfao0ePrm6Lrpd6tUkdAxV72WagOH3qcdQaSYjKZnzSmbL6vbjgE8IdEXv3Q_oTg2" />
+    </form>
+
+    <section class="account">
+        <div class="sidebar">
+            <div class="ctn">
+                <div class="header">
+                    <div class="logo">
+                        <a href="/"><img src="~/ContentWeb/Content/web/img/logo-text.png" alt="Hoàng Hà Mobile" /></a>
+                    </div>
+
+                    <div class="info">
+                        <div class="avt" id="myAvatar">
+                            <strong>T</strong>
+                        </div>
+
+                        <div class="summer">
+                            <p><strong>Vũ Đức Thắng</strong></p>
+                            <p class="change-avatar"><a href="javascript:;" onclick="$('#avtImage').trigger('click'); return false;"><i class="icon-change-avatar"></i> Thay đổi ảnh đại diện</a></p>
+                            <input type="file" name="upfile" id="avtImage" accept="image/*" style="display: none;" />
+                        </div>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/account/index"><i class="icon-controls"></i><span>Bảng điều khiển</span></a></li>
+                        <li><a href="/account/info"><i class="icon-account"></i><span>Thông tin tài khoản</span></a></li>
+                        <li><a href="/account/order"><i class="icon-order-mgr"></i><span>Đơn hàng của bạn</span></a></li>
+                        <li><a href="/account/wishlist"><i class="icon-love"></i><span>Sản phẩm yêu thích</span></a></li>
+
+                        <li><a href="~/NguoiDung/Logout"><i class="icon-logout"></i><span>Đăng xuất</span></a></li>
+                    </ul>
+                </nav>
+
+                <div class="hotline">
+                    <div>
+                        <strong>Bạn cần hỗ trợ?</strong>
+                        <a href="tel:0377773870"><i class="icon-calling"></i> <strong>03.7777.3870</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="body-content">
+
+
+
+            <h1>@ViewBag</h1>
+
+            <div class="header">
+                <div class="bg">
+                    <div class="text">
+                        <h2>CHÀO MỪNG QUAY TRỞ LẠI, @*@Model._Account.AccountName*@ Vũ Đức Thắng</h2>
+                        <p><i>Kiểm tra và chỉnh sửa thông tin cá nhân của bạn tại đây</i></p>
+                    </div>
+                </div>
+            </div>
+
+            @RenderBody()
+
+            
+
+
+
+        </div>
+    </section>
+
+
+    <iframe src="https://asia.creativecdn.com/tags?id=pr_n4X0y6ApZyJaHX1dNxQd&amp;ncm=1" width="1" height="1" scrolling="no" frameBorder="0" style="display: none;"></iframe>
+
+
+
+
+
+
+    <footer>
+        <div class="container">
+
+
+
+            <div id="backtoTop">
+                <a id="top" href="javascript:;">
+                    <i class="icon-left"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <div id="popup-modal"></div>
+    <div id="sticker-modal"></div>
+    <div class="search-bg"></div>
+
+
+
+    <!-- analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-1415779-10', 'auto');
+        ga('require', 'GTM-KXZQBMD');
+        ga('require', 'GTM-WPLRWHK');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- analytics -->
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5QM3X2');</script>
+    <!-- End Google Tag Manager -->
+    <!-- subiz -->
+    <script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acqqrmpwwuqeianonpxt")</script>
+    <!-- subiz -->
+    <!-- accesstrade-->
+    <script src="//static.accesstrade.vn/js/trackingtag/tracking.min.js "></script>
+    <script type="text/javascript">
+        AT.init({ "campaign_id": 626, "is_reoccur": 1, "is_lastclick": 1 });
+        AT.track();
+    </script>
+    <!-- accesstrade-->
+
+
+
+    <script src="/js-css/web_v1.0.9.9.js"></script>
+
+
+    <script src="~/ContentWeb/Content/web/js/app.users.js?c=637646623208165651"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var reqPath = '/account' + location.pathname.toLowerCase();
+            var hasActived = false;
+            $('nav ul li a').each(function (idx, value) {
+                var href = $(this).attr('href').toLowerCase();
+                if (href && reqPath.indexOf(href) >= 0) {
+                    $(this).addClass('actived');
+                    hasActived = true;
+                }
+            });
+
+            if (!hasActived) {
+                $('nav ul li:eq(0) a').addClass('actived');
+            }
+        });
+    </script>
+
+    <script src="~/ContentWeb/Content/web/js/plugins/jquery-datepicker/datepicker.min.js"></script>
+    <link href="~/ContentWeb/Content/web/js/plugins/jquery-datepicker/datepicker.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            init_cityChange();
+            $('#UserBirthDate').datepicker({ format: 'dd/mm/yyyy' });
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            showSticker(24);
+        });
+    </script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

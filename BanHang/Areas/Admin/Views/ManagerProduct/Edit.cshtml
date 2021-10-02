@@ -1,0 +1,256 @@
+﻿@model BanHang.Models.ProductView
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var lstLoai = (List<BanHang.Models.Menu>)Session["MenuProduct"];
+    var lstHang = (List<BanHang.Models.Manufacturer>)Session["Hang"];
+}
+@using (Html.BeginForm("Edit", "ManagerProduct", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body table-border-style">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h4 class="card-title">Chỉnh sửa thông tin sản phẩm</h4>
+                        </div>
+                    </div>
+                    @Html.HiddenFor(model => model._Product.ID)
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @if (ViewBag.ErrorEdit != null)
+                    {
+                        <div class="alert alert-danger">@ViewBag.ErrorEdit</div>
+                    }
+
+                    @if (ViewBag.SuccessEdit != null)
+                    {
+                        <div class="alert alert-success">@ViewBag.SuccessEdit</div>
+                    }
+                    @if (ViewBag.Price != null)
+                    {
+                        <div class="alert alert-danger">@ViewBag.Price</div>
+                    }
+                    @if (ViewBag.Price2 != null)
+                    {
+                        <div class="alert alert-danger">@ViewBag.Price2</div>
+                    }
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Mã Sản Phẩm: <span class="label-required">*</span></label>
+                                        @Html.EditorFor(model => model._Product.Code, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model._Product.Code, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Tên Sản Phẩm: <span class="label-required">*</span></label>
+                                        @Html.EditorFor(model => model._Product.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model._Product.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Loại Sản Phẩm: <span class="label-required">*</span></label>
+                                        <select id="cboLoai" class="form-control" name="cboLoai">
+                                            <option selected>---Chọn Loại Sản Phẩm ---</option>
+                                            @if (lstLoai != null)
+                                            {
+                                                foreach (var item in lstLoai)
+                                                {
+                                                    if (Model._Product.MenuID == item.ID)
+                                                    {
+                                                        <option value="@item.ID" selected> @item.Name </option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@item.ID"> @item.Name </option>
+                                                    }
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Hãng: <span class="label-required">*</span></label>
+                                        <select id="cboHang" class="form-control" name="cboHang">
+                                            <option value="-1" selected>---Chọn hãng sản phẩm ---</option>
+                                            @if (lstHang != null)
+                                            {
+                                                foreach (var itemhang in lstHang)
+                                                {
+                                                    if (Model._Product.ManufacturerID == itemhang.ID)
+                                                    {
+                                                        <option value="@itemhang.ID" selected> @itemhang.Name </option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@itemhang.ID"> @itemhang.Name </option>
+                                                    }
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 ">
+                                    <div class="card">
+                                        <label for="input-file-now-custom-1">Ảnh</label>
+                                        <input type="file" src="@Model._Product.Image" value="@Model._Product.Image" name="filePost" idinput-file-now-custom-1" class="dropify" data-default-file="@Model._Product.Image" />
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 ">
+                                    <div class="card">
+                                        <label for="input-file-now-custom-1">Ảnh Khác</label>
+                                        <input type="file" src="" value="" name="filePost2" id="input-file-now-custom-1" class="dropify" data-default-file="" />
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Màu sắc sản phẩm: <span class="label-required">*</span></label>
+                                        @Html.EditorFor(model => model._ProductPrice.Color, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model._ProductPrice.Color, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Dung Lượng Sản Phẩm: <span class="label-required">*</span></label>
+                                        @Html.EditorFor(model => model._ProductPrice.Capacity, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model._ProductPrice.Capacity, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Giá Sản Phẩm: <span class="label-required">*</span></label>
+                                        @Html.EditorFor(model => model._ProductPrice.Price, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model._ProductPrice.Price, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Giá Khuyến Mại: <span class="label-required">*</span></label>
+                                        @Html.EditorFor(model => model._ProductPrice.PromotionPrice, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model._ProductPrice.PromotionPrice, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Thời gian bảo hành: <span class="label-required">*</span></label>
+                                        @Html.EditorFor(model => model._Product.Warranty, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model._Product.Warranty, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Trạng thái: <span class="label-required"></span></label>
+                                        <select id="inputState" class="form-control" name="cboStatus">
+
+                                            <option value="0" selected>Ngừng Bán</option>
+                                            <option value="1" selected>Đang Bán</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Loại tin: <span class="label-required">*</span></label>
+                                        <br />
+                                        @Html.RadioButton("product", "isHot")<span></span> Sản Phẩm Hót<br />
+                                        @Html.RadioButton("product", "isNew")<span></span> Sản phẩm Mới<br />
+                                        @Html.RadioButton("product", "isSale")<span></span> Sản Phẩm Đang Sale<br />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br />
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    @Html.TextAreaFor(model => model._Product.Description, new { @id = "txtFullDescribe" })
+
+                                </div>
+                            </div>
+                            
+                            <br />
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <input type="submit" value="Cập nhật" class="btn btn-primary btn-sm" />
+                                    @Html.ActionLink("Quay lại", "Index")
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="~/Areas/Admin/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+<script src="~/Areas/Admin/ckfinder/config.js"></script>
+<script src="~/Areas/Admin/ckeditor/ckeditor.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        CKEDITOR.replace('txtFullDescribe');
+
+    });
+</script>
+<script src="~/Areas/Admin/assets/node_modules/dropify/dist/js/dropify.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Basic
+        $('.dropify').dropify();
+
+        // Translated
+        $('.dropify-fr').dropify({
+            messages: {
+                default: 'Glissez-déposez un fichier ici ou cliquez',
+                replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                remove: 'Supprimer',
+                error: 'Désolé, le fichier trop volumineux'
+            }
+        });
+
+        // Used events
+        var drEvent = $('#input-file-events').dropify();
+
+        drEvent.on('dropify.beforeClear', function (event, element) {
+            return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+        });
+
+        drEvent.on('dropify.afterClear', function (event, element) {
+            alert('File deleted');
+        });
+
+        drEvent.on('dropify.errors', function (event, element) {
+            console.log('Has Errors');
+        });
+
+        var drDestroy = $('#input-file-to-destroy').dropify();
+        drDestroy = drDestroy.data('dropify')
+        $('#toggleDropify').on('click', function (e) {
+            e.preventDefault();
+            if (drDestroy.isDropified()) {
+                drDestroy.destroy();
+            } else {
+                drDestroy.init();
+            }
+        })
+    });</script>
+@*<script src="~/Areas/Admin/ckfinder/ckfinder.js"></script>*@

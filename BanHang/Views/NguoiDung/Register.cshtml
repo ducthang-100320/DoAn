@@ -1,0 +1,135 @@
+﻿@model IEnumerable<BanHang.Models.Account>
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/LayoutWeb.cshtml";
+}
+
+
+<!doctype html>
+<html>
+
+
+<body>
+    
+    <div class="container">
+
+        <div class="login-form">
+            
+
+            <div class="form">
+
+                <div class="center" style="text-align:center;">
+                    <h2>Đăng ký tài khoản</h2>
+                    <p>Chú ý các nội dung có dấu * bạn cần phải nhập</p>
+
+                </div>
+
+                <div id="registerForm" class="hh-form">
+                    <form method="post" action="/Account/Register">
+                        <input type="hidden" name="ReturnUrl" />
+                        <input name="__RequestVerificationToken" type="hidden" value="Xxplzt2BvWnF9I_l5XQR5n9CPq3kyaERoAltC7NageSJW1ZikvVT2vk97NmvcDuGdhMYev1i7hG9KFR_uRutY3ex1Ks1" />
+
+                        <div class="form-controls">
+                            <label>Tài khoản:</label>
+                            <div class="controls">
+                                <input type="text" name="UserName" id="UserName" placeholder="Tài khoản *" data-required="1" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-controls">
+                            <label>Họ tên:</label>
+                            <div class="controls">
+                                <input type="text" name="Title" id="Title" placeholder="Họ tên *" data-required="1" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-controls">
+                            <label>Mật khẩu:</label>
+                            <div class="controls">
+                                <input type="text" name="PasswordHash" id="PasswordHash" placeholder="Mật khẩu *" data-required="1" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-controls">
+                            <label>Nhập lại mật khẩu:</label>
+                            <div class="controls">
+                                <input type="text" name="SecurityStamp" id="SecurityStamp" placeholder="Nhập lại mật khẩu *" data-required="1" />
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-controls">
+                            <label>Email:</label>
+                            <div class="controls">
+                                <input type="text" name="Email" id="Email" placeholder="Email *" data-required="1" />
+                            </div>
+                        </div>
+
+                        <div class="form-controls">
+                            <label>Giới tính:</label>
+                            <div class="controls">
+                                <label class="radio-ctn">
+                                    <input type="radio" name="Sex" value="true">
+                                    <span class="checkmark"></span>
+                                    <span><strong>Nam</strong></span>
+                                </label>
+
+                                <label class="radio-ctn">
+                                    <input type="radio" name="Sex" value="false">
+                                    <span class="checkmark"></span>
+                                    <span><strong>Nữ</strong></span>
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-controls">
+                            <label>Ngày tháng năm sinh:</label>
+                            <div class="controls">
+                                <input type="text" value="" name="UserBirthDate" id="UserBirthDate" placeholder="Ngày tháng năm sinh" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-controls">
+                            <label>Điện thoại:</label>
+                            <div class="controls">
+                                <input type="tel" name="PhoneNumber" id="PhoneNumber" placeholder="Điện thoại *" data-required="1" />
+                            </div>
+                        </div>
+
+                        <div class="form-controls">
+                            <label>Địa chỉ:</label>
+                            <div class="controls">
+                                <input type="text" name="Address" id="Address" placeholder="Địa chỉ *" data-required="1" />
+                            </div>
+                        </div>
+
+                        
+
+
+
+                        <div class="form-controls">
+                            <div class="controls submit-controls">
+                                <button type="submit">ĐĂNG KÝ TÀI KHOẢN</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popup-modal"></div>
+    <div id="sticker-modal"></div>
+    <div class="search-bg"></div>
+
+</body>
+</html>
+
+

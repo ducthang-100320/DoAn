@@ -1,0 +1,730 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/LayoutWeb.cshtml" /*null*/;
+}
+@{
+    var Reciver = Session["Reciver"] as BanHang.Models.Checkout;
+}
+
+<!doctype html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="author" content="hoanghamobile.com">
+    <meta property='og:site_name' content='hoanghamobile.com' />
+    <meta name="google-site-verification" content="JOFGGI7j9vWfBf-xpElM5Tec0UJ1k_CfdNjpaHm5z10" />
+    <meta name="msvalidate.01" content="5C8CDF0992489498A30F9E5F6668A4D5" />
+    <meta name="geo.placename" content="Hanoi, Hoàn Kiếm, Hanoi, Vietnam" />
+    <meta name="geo.position" content="21.017249242314964;105.84134504199028" />
+    <meta name="geo.region" content="VN-Hanoi" />
+    <meta name="ICBM" content="21.017249242314964, 105.84134504199028" />
+    <!-- Custom-Files -->
+    @*<link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />*@
+    <!-- Bootstrap css -->
+    @*<link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />*@
+
+    <!-- Main css -->
+    <link href="~/Content/css/fontawesome-all.css" rel="stylesheet" />
+    <!-- Font-Awesome-Icons-CSS -->
+    <link href="~/Content/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- pop-up-box -->
+    <link href="~/Content/css/menu.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- menu style -->
+    <!-- //Custom-Files -->
+    <title>Kiểm tra lại th&#244;ng tin v&#224; đặt h&#224;ng</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+
+    @*<script>
+            window.insider_object = {};
+        </script>*@
+
+
+    @*<meta name="robots" content="noindex">*@
+
+
+    @*<script>
+                window.insider_object.user = {"uuid":"anonymous_637656754846127086","gender":null,"birthday":null,"has_transacted":false,"transaction_count":0,"gdpr_optin":true,"name":"ducthang100320@gmail.com","surname":null,"username":"0377773876","email":"ducthang100320@gmail.com","email_optin":true,"phone_number":"0377773876","sms_optin":true,"language":"vi-VN","returning":false,"list_id":null};
+        </script>*@
+
+    @*<script async src="//hoanghamobilevn.api.useinsider.com/ins.js?id=10005327"></script>*@
+</head>
+
+<body>
+
+    <section>
+        <div class="container">
+
+            <div class="cart cart-checkout" id="cart cart-checkout">
+                <div class="header">
+                    <div class="back">
+                        <a href="javascript:window.history.back();">
+                            <i class="icon-leftar"></i>
+                            <strong>Quay lại</strong>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="just-center">
+                    <div class="cart-icon">
+                        <i class="icon-cart-index"></i>
+                        <label>Vui lòng kiểm tra lại thông tin đặt hàng dưới đây</label>
+                    </div>
+                </div>
+
+
+                <div class="order-infomation">
+                    <h3>1. Thông tin người đặt hàng</h3>
+                    <table class="table talbe-order">
+                        <tr>
+                            <td class="label" style="width:110px;">Họ tên</td>
+                            <td class="content" id="txtName">@Reciver.Name</td>
+                            <td class="label" style="width:75px;">Điện thoại</td>
+                            <td class="content" id="txtPhone">@Reciver.Phone</td>
+                            <td class="label" style="width:75px;">Email</td>
+                            <td class="content" id="txtEmail">@Reciver.Email</td>
+                        </tr>
+
+                        <tr>
+                            <td class="label">Địa chỉ</td>
+                            <td class="content" colspan="5" id="txtAddress">@Reciver.Address</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Ghi chú đặt hàng</td>
+                            <td colspan="5" id="txtNote">@Reciver.Note</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="order-infomation" id="order-infomation">
+                    <h3>2. Danh sách sản phẩm đặt hàng</h3>
+                    <table class="table table-border talbe-order table-product" id="table">
+                        <tr id="dulieu">
+                            <th>#</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Phiên bản</th>
+                            <th>Màu sắc</th>
+                            <th>SL</th>
+                            <th>Giá tiền</th>
+                            <th>Tổng (SLxG)</th>
+                        </tr>
+
+
+                    </table>
+                </div>
+
+
+
+                <div class="privacy py-sm-5 py-5">
+                    <div class="container py-md-5 py-4">
+                        <!-- tittle heading -->
+                        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">Chọn phương thức thanh toán</h3>
+                        <!-- //tittle heading -->
+                        <div class="checkout-right">
+                            <!--Horizontal Tab-->
+                            <div id="parentHorizontalTab" style="display: block; width: 100%; margin: 0px;">
+                                <ul class="resp-tabs-list hor_1">
+                                    <li class="resp-tab-item hor_1 resp-tab-active" aria-controls="hor_1_tab_item-0" role="tab" style="background-color: white; border-color: rgb(193, 193, 193);">Cash on delivery (COD)</li>
+                                    <li class="resp-tab-item hor_1" aria-controls="hor_1_tab_item-1" role="tab" style="background-color: rgb(245, 245, 245); border-color: rgb(193, 193, 193);">Credit/Debit</li>
+                                    <li class="resp-tab-item hor_1" aria-controls="hor_1_tab_item-2" role="tab" style="background-color: rgb(245, 245, 245); border-color: rgb(193, 193, 193);">Net Banking</li>
+                                    <li class="resp-tab-item hor_1" aria-controls="hor_1_tab_item-3" role="tab" style="background-color: rgb(245, 245, 245); border-color: rgb(193, 193, 193);">Paypal Account</li>
+                                </ul>
+                                <div class="resp-tabs-container hor_1" style="border-color: rgb(193, 193, 193);">
+
+                                    <h2 class="resp-accordion hor_1 resp-tab-active" role="tab" aria-controls="hor_1_tab_item-0" style="background: none white; border-color: rgb(193, 193, 193);"><span class="resp-arrow"></span>Cash on delivery (COD)</h2><div class="resp-tab-content hor_1 resp-tab-content-active" aria-labelledby="hor_1_tab_item-0" style="display:block">
+                                        <div class="vertical_post check_box_agile">
+                                            <h5>COD</h5>
+                                            <div class="checkbox">
+                                                <div class="check_box_one cashon_delivery">
+                                                    <label class="anim">
+                                                        <input type="checkbox" class="checkbox">
+                                                        <span>
+                                                            We also accept Credit/Debit card on delivery. Please Check with the
+                                                            agent.
+                                                        </span>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2 class="resp-accordion hor_1" role="tab" aria-controls="hor_1_tab_item-1" style="background-color: rgb(245, 245, 245); border-color: rgb(193, 193, 193);"><span class="resp-arrow"></span>Credit/Debit</h2><div class="resp-tab-content hor_1" aria-labelledby="hor_1_tab_item-1">
+                                        <form action="#" method="post" class="creditly-card-form agileinfo_form">
+                                            <div class="creditly-wrapper wthree, w3_agileits_wrapper">
+                                                <div class="credit-card-wrapper">
+                                                    <div class="first-row form-group">
+                                                        <div class="controls">
+                                                            <label class="control-label">Name on Card</label>
+                                                            <input class="billing-address-name form-control" type="text" name="name" placeholder="John Smith">
+                                                        </div>
+                                                        <div class="w3_agileits_card_number_grids my-3">
+                                                            <div class="w3_agileits_card_number_grid_left">
+                                                                <div class="controls">
+                                                                    <label class="control-label">Card Number</label>
+                                                                    <input class="number credit-card-number form-control" type="text" name="number" inputmode="numeric" autocomplete="cc-number" autocompletetype="cc-number" x-autocompletetype="cc-number" placeholder="•••• •••• •••• ••••">
+                                                                </div>
+                                                            </div>
+                                                            <div class="w3_agileits_card_number_grid_right mt-2">
+                                                                <div class="controls">
+                                                                    <label class="control-label">CVV</label>
+                                                                    <input class="security-code form-control" Â·="" inputmode="numeric" type="text" name="security-code" placeholder="•••">
+                                                                </div>
+                                                            </div>
+                                                            <div class="clear"> </div>
+                                                        </div>
+                                                        <div class="controls">
+                                                            <label class="control-label">Expiration Date</label>
+                                                            <input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">
+                                                        </div>
+                                                    </div>
+                                                    <button class="submit mt-3"><span>Make a Payment</span></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <h2 class="resp-accordion hor_1" role="tab" aria-controls="hor_1_tab_item-2" style="background-color: rgb(245, 245, 245); border-color: rgb(193, 193, 193);"><span class="resp-arrow"></span>Net Banking</h2><div class="resp-tab-content hor_1" aria-labelledby="hor_1_tab_item-2">
+                                        <div class="vertical_post">
+                                            <form action="#" method="post">
+                                                <h5>Select From Popular Banks</h5>
+                                                <div class="swit-radio">
+                                                    <div class="check_box_one">
+                                                        <div class="radio_one">
+                                                            <label>
+                                                                <input type="radio" name="radio" checked="">
+                                                                <i></i>Syndicate Bank
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="check_box_one">
+                                                        <div class="radio_one">
+                                                            <label>
+                                                                <input type="radio" name="radio">
+                                                                <i></i>Bank of Baroda
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="check_box_one">
+                                                        <div class="radio_one">
+                                                            <label>
+                                                                <input type="radio" name="radio">
+                                                                <i></i>Canara Bank
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="check_box_one">
+                                                        <div class="radio_one">
+                                                            <label>
+                                                                <input type="radio" name="radio">
+                                                                <i></i>ICICI Bank
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="check_box_one">
+                                                        <div class="radio_one">
+                                                            <label>
+                                                                <input type="radio" name="radio">
+                                                                <i></i>State Bank Of India
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="check_box_one">
+                                                        <div class="radio_one">
+                                                            <label>
+                                                                <input type="radio" name="radio">
+                                                                <i></i>Another
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                                <h5>Or Select Other Bank</h5>
+                                                <div class="section_room_pay">
+                                                    <select class="year">
+                                                        <option value="">=== Other Banks ===</option>
+                                                        <option value="ALB-NA">Allahabad Bank NetBanking</option>
+                                                        <option value="ADB-NA">Andhra Bank</option>
+                                                        <option value="BBK-NA">Bank of Bahrain and Kuwait NetBanking</option>
+                                                        <option value="BBC-NA">Bank of Baroda Corporate NetBanking</option>
+                                                        <option value="BBR-NA">Bank of Baroda Retail NetBanking</option>
+                                                        <option value="BOI-NA">Bank of India NetBanking</option>
+                                                        <option value="BOM-NA">Bank of Maharashtra NetBanking</option>
+                                                        <option value="CSB-NA">Catholic Syrian Bank NetBanking</option>
+                                                        <option value="CBI-NA">Central Bank of India</option>
+                                                        <option value="CUB-NA">City Union Bank NetBanking</option>
+                                                        <option value="CRP-NA">Corporation Bank</option>
+                                                        <option value="DBK-NA">Deutsche Bank NetBanking</option>
+                                                        <option value="DCB-NA">Development Credit Bank</option>
+                                                        <option value="DC2-NA">Development Credit Bank - Corporate</option>
+                                                        <option value="DLB-NA">Dhanlaxmi Bank NetBanking</option>
+                                                        <option value="FBK-NA">Federal Bank NetBanking</option>
+                                                        <option value="IDS-NA">Indusind Bank NetBanking</option>
+                                                        <option value="IOB-NA">Indian Overseas Bank</option>
+                                                        <option value="ING-NA">ING Vysya Bank (now Kotak)</option>
+                                                        <option value="JKB-NA">Jammu and Kashmir NetBanking</option>
+                                                        <option value="JSB-NA">Janata Sahakari Bank Limited</option>
+                                                        <option value="KBL-NA">Karnataka Bank NetBanking</option>
+                                                        <option value="KVB-NA">Karur Vysya Bank NetBanking</option>
+                                                        <option value="LVR-NA">Lakshmi Vilas Bank NetBanking</option>
+                                                        <option value="OBC-NA">Oriental Bank of Commerce NetBanking</option>
+                                                        <option value="CPN-NA">PNB Corporate NetBanking</option>
+                                                        <option value="PNB-NA">PNB NetBanking</option>
+                                                        <option value="RSD-DIRECT">
+                                                            Rajasthan State Co-operative Bank-Debit Card
+                                                        </option>
+                                                        <option value="RBS-NA">RBS (The Royal Bank of Scotland)</option>
+                                                        <option value="SWB-NA">Saraswat Bank NetBanking</option>
+                                                        <option value="SBJ-NA">SB Bikaner and Jaipur NetBanking</option>
+                                                        <option value="SBH-NA">SB Hyderabad NetBanking</option>
+                                                        <option value="SBM-NA">SB Mysore NetBanking</option>
+                                                        <option value="SBT-NA">SB Travancore NetBanking</option>
+                                                        <option value="SVC-NA">Shamrao Vitthal Co-operative Bank</option>
+                                                        <option value="SIB-NA">South Indian Bank NetBanking</option>
+                                                        <option value="SBP-NA">State Bank of Patiala NetBanking</option>
+                                                        <option value="SYD-NA">Syndicate Bank NetBanking</option>
+                                                        <option value="TNC-NA">
+                                                            Tamil Nadu State Co-operative Bank NetBanking
+                                                        </option>
+                                                        <option value="UCO-NA">UCO Bank NetBanking</option>
+                                                        <option value="UBI-NA">Union Bank NetBanking</option>
+                                                        <option value="UNI-NA">United Bank of India NetBanking</option>
+                                                        <option value="VJB-NA">Vijaya Bank NetBanking</option>
+                                                    </select>
+                                                </div>
+                                                <button type="submit" class="btn btn-style mt-4">Pay Now</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <h2 class="resp-accordion hor_1" role="tab" aria-controls="hor_1_tab_item-3" style="background-color: rgb(245, 245, 245); border-color: rgb(193, 193, 193);"><span class="resp-arrow"></span>Paypal Account</h2><div class="resp-tab-content hor_1" aria-labelledby="hor_1_tab_item-3">
+                                        <div id="tab4" class="tab-grid" style="display: block;">
+                                            <div class="row">
+                                                <div class="col-md-6 pay-forms">
+                                                    <img class="pp-img" src="images/paypal.png" alt="Image Alternative text" title="Image Title">
+                                                    <p>
+                                                        Important: You will be redirected to PayPal's website to securely complete
+                                                        your payment.
+                                                    </p>
+                                                    <a class="btn btn-primary">Checkout via Paypal</a>
+                                                </div>
+                                                <div class="col-md-6 number-paymk">
+                                                    <form action="#" method="post" class="creditly-card-form-2 shopf-sear-headinfo_form">
+                                                        <section class="creditly-wrapper payf_wrapper">
+                                                            <div class="credit-card-wrapper">
+                                                                <div class="first-row form-group">
+                                                                    <div class="controls">
+                                                                        <label class="control-label">Card Holder </label>
+                                                                        <input class="billing-address-name form-control" type="text" name="name" placeholder="John Smith">
+                                                                    </div>
+                                                                    <div class="paymntf_card_number_grids">
+                                                                        <div class="fpay_card_number_grid_left">
+                                                                            <div class="controls mt-3">
+                                                                                <label class="control-label">Card Number</label>
+                                                                                <input class="number credit-card-number-2 form-control" type="text" name="number" inputmode="numeric" autocomplete="cc-number" autocompletetype="cc-number" x-autocompletetype="cc-number" placeholder="•••• •••• •••• ••••">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="fpay_card_number_grid_right mt-3">
+                                                                            <div class="controls">
+                                                                                <label class="control-label">CVV</label>
+                                                                                <input class="security-code-2 form-control" Â·="" inputmode="numeric" type="text" name="security-code" placeholder="•••">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="clear"> </div>
+                                                                    </div>
+                                                                    <div class="controls mt-3">
+                                                                        <label class="control-label">Valid Thru</label>
+                                                                        <input class="expiration-month-and-year-2 form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">
+                                                                    </div>
+                                                                </div>
+                                                                <input class="submit" type="submit" value="Proceed Payment">
+                                                            </div>
+                                                        </section>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Plug-in Initialisation-->
+                        </div>
+                    </div>
+                </div>
+                <style type="text/css">
+                </style>
+
+                
+                <form class="cart-form" @*action="/cart/submit"*@ @*method="post"*@>
+                    <div class="row">
+                        <div class="control-button just-center">
+                            <button type="button" onclick="Order()">@*<i class="icon-checked"></i>*@ XÁC NHẬN ĐẶT HÀNG</button>
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <iframe src="https://asia.creativecdn.com/tags?id=pr_n4X0y6ApZyJaHX1dNxQd_startorder" width="1" height="1" scrolling="no" frameBorder="0" style="display: none;"></iframe>
+
+
+
+
+    <div id="popup-modal"></div>
+    <div id="sticker-modal"></div>
+    <div class="search-bg"></div>
+
+
+
+    <!-- analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-1415779-10', 'auto');
+        ga('require', 'GTM-KXZQBMD');
+        ga('require', 'GTM-WPLRWHK');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- analytics -->
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5QM3X2');</script>
+    <!-- End Google Tag Manager -->
+    <!-- subiz -->
+    <script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acqqrmpwwuqeianonpxt")</script>
+    <!-- subiz -->
+    <!-- accesstrade-->
+    <script src="//static.accesstrade.vn/js/trackingtag/tracking.min.js "></script>
+    <script type="text/javascript">
+        AT.init({ "campaign_id": 626, "is_reoccur": 1, "is_lastclick": 1 });
+        AT.track();
+    </script>
+    <!-- accesstrade-->
+
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            showSticker(24);
+        });
+    </script>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (window.localStorage) {
+                Cart = JSON.parse(window.localStorage.getItem("giohang"));
+            }
+            
+            var cartBody = document.getElementById("table");
+            var TotalMoney = 0;
+            var Total = 0;
+            var i = 0;
+
+            Cart.map(item => {
+                i++;
+                TotalMoney = parseInt(item.PromotionPrice * parseInt(item.Quantity));
+                Total = Total + TotalMoney;
+                cartBody.innerHTML += `
+                            <tr>
+                                <td align="center" valign="middle" rowspan="1">${i}</td>
+                                <td><strong id="txtNameProduct">${item.Name}</strong></td>
+                                <td align="center">Mặc định</td>
+                                <td align="center">Black</td>
+                                <td align="center">${item.Quantity}</td>
+                                <td align="center">${item.PromotionPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ₫</td>
+                                <td align="center">${TotalMoney.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ₫</td>
+
+            `
+
+                    ;
+
+            })
+            cartBody.innerHTML += `
+
+                    </tr>
+                            <tr class="no-border">
+                                <td colspan="6" align="right">Tổng tiền:</td>
+                                <td>${Total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ₫</td>
+                            </tr>
+                            <tr class="no-border">
+                                <td colspan="6" align="right">Giảm giá:</td>
+                                <td>-00 ₫</td>
+                            </tr>
+                            <tr class="no-border">
+                                <td colspan="6" align="right">Tổng tiền thanh toán:</td>
+                                <td><strong class="text-red">190,000 ₫</strong></td>
+                            </tr>
+                 `
+                ;
+
+
+        });
+    </script>
+    <script type="text/javascript">
+        function Order() {
+            if (window.localStorage) {
+                Cart = JSON.parse(window.localStorage.getItem("giohang"));
+
+            }
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("Order","Cart")',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(Cart),
+                dataType: "json",
+                success: function (result) {
+                    if (result == true) {
+                        window.location = "/Cart/Submit";
+                    }
+                    else {
+                        confirm("Vui lòng đăng nhập để thanh toán");
+                        $('#modal1').modal('show');
+                    
+                    }
+                }
+            });
+            
+        }
+    </script>
+    
+    <!-- //common jquery plugin -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+                var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+                };
+            */
+
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <!-- js -->
+    <script src="~/Content/js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="~/Content/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Content/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <!-- nav smooth scroll -->
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <!-- //nav smooth scroll -->
+    <!-- popup modal (for location)-->
+    <script src="~/Content/js/jquery.magnific-popup.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+        });
+    </script>
+    <!-- //popup modal (for location)-->
+    <!-- easy-responsive-tabs -->
+    <link href="~/Content/css/easy-responsive-tabs.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/js/easyResponsiveTabs.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            //Horizontal Tab
+            $('#parentHorizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true, // 100% fit in a container
+                tabidentify: 'hor_1', // The tab groups identifier
+                activate: function (event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#nested-tabInfo');
+                    var $name = $('span', $info);
+                    $name.text($tab.text());
+                    $info.show();
+                }
+            });
+        });
+    </script>
+    <!-- //easy-responsive-tabs -->
+    <!-- credit-card -->
+
+    <script src="~/Content/js/creditly.js"></script>
+    <link href="~/Content/css/creditly.css" rel="stylesheet" type="text/css" media="all" />
+    <script>
+        $(function () {
+            var creditly = Creditly.initialize(
+                '.creditly-wrapper .expiration-month-and-year',
+                '.creditly-wrapper .credit-card-number',
+                '.creditly-wrapper .security-code',
+                '.creditly-wrapper .card-type');
+
+
+            $(".creditly-card-form .submit").click(function (e) {
+                e.preventDefault();
+                var output = creditly.validate();
+                if (output) {
+                    // Your validated credit card output
+                    console.log(output);
+                }
+            });
+        });
+    </script>
+
+    <!-- creditly2 (for paypal) -->
+    <script src="~/Content/js/creditly2.js"></script>
+    <script>
+        $(function () {
+            var creditly = Creditly2.initialize(
+                '.creditly-wrapper .expiration-month-and-year-2',
+                '.creditly-wrapper .credit-card-number-2',
+                '.creditly-wrapper .security-code-2',
+                '.creditly-wrapper .card-type');
+
+            $(".creditly-card-form-2 .submit").click(function (e) {
+                e.preventDefault();
+                var output = creditly.validate();
+                if (output) {
+                    // Your validated credit card output
+                    console.log(output);
+                }
+            });
+        });
+    </script>
+    <!-- //credit-card -->
+    <!-- cart-js -->
+    <script src="js/minicart.js"></script>
+    <script>
+        paypals.minicarts
+            .render(); //use only unique class names other than paypals.minicarts.Also Replace same class name in css and minicart.min.js
+
+        paypals.minicarts.cart.on('checkout', function (evt) {
+            var items = this.items(),
+                len = items.length,
+                total = 0,
+                i;
+
+            // Count the number of each item in the cart
+            for (i = 0; i < len; i++) {
+                total += items[i].get('quantity');
+            }
+
+            if (total < 3) {
+                alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+                evt.preventDefault();
+            }
+        });
+    </script>
+    <!-- //cart-js -->
+    <!-- password-script -->
+    
+    <!-- //password-script -->
+    <!-- theme switch js (light and dark)-->
+    <script src="~/Content/js/theme-change.js"></script>
+
+    <script>
+        function autoType(elementClass, typingSpeed) {
+            var thhis = $(elementClass);
+            thhis.css({
+                "position": "relative",
+                "display": "inline-block"
+            });
+            thhis.prepend('<div class="cursor" style="right: initial; left:0;"></div>');
+            thhis = thhis.find(".text-js");
+            var text = thhis.text().trim().split('');
+            var amntOfChars = text.length;
+            var newString = "";
+            thhis.text("|");
+            setTimeout(function () {
+                thhis.css("opacity", 1);
+                thhis.prev().removeAttr("style");
+                thhis.text("");
+                for (var i = 0; i < amntOfChars; i++) {
+                    (function (i, char) {
+                        setTimeout(function () {
+                            newString += char;
+                            thhis.text(newString);
+                        }, i * typingSpeed);
+                    })(i + 1, text[i]);
+                }
+            }, 1500);
+        }
+
+        $(document).ready(function () {
+            // Now to start autoTyping just call the autoType function with the
+            // class of outer div
+            // The second paramter is the speed between each letter is typed.
+            autoType(".type-js", 200);
+        });
+    </script>
+    <!-- //theme switch js (light and dark)-->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function () {
+            $('.navbar-toggler').click(function () {
+                $('body').toggleClass('noscroll');
+            })
+        });
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+    <!--bootstrap-->
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <!-- //bootstrap-->
+    <!-- //Js scripts -->
+
+</body>
+</html>
+
+
+

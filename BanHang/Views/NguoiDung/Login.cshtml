@@ -1,0 +1,84 @@
+﻿@model IEnumerable<BanHang.Models.Account>
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/LayoutWeb.cshtml";
+}
+
+<!doctype html>
+<html>
+
+
+<body>
+   
+    <div class="container">
+        <div class="login-form">
+            
+            <div class="form">
+                <h1>Đăng nhập</h1>
+                <div class="external">
+                    <form method="post" action="/Account/ExternalLogin">
+                        <input name="__RequestVerificationToken" type="hidden" value="q_51Zxe7Rbpf3YzZAGRCO6a7-iVio8yQ5gJPQ0MdkUlTMTSRwMqL-5w50zcsEC2PMwqMmOE6E9J468EB6M9U76QQD681" />
+                        <input type="hidden" name="ReturnUrl" value="/" />
+                        <button class="btn-extlogin btn-facebook" title="Đăng nhập qua Facebook" type="submit" id="Facebook" name="provider" value="Facebook"><img src="~/ContentWeb/Content/web/img/login-facebook.png" /> Tiếp tục với Facebook</button>
+                        <button class="btn-extlogin btn-google" type="submit" title="Đăng nhập qua Google+" id="Google" name="provider" value="Google"><img src="~/ContentWeb/Content/web/img/login-google.png" /> Đăng nhập với Google</button>
+                    </form>
+                </div>
+
+                <div class="split">
+                    <p>Hoặc</p>
+                </div>
+
+                <div class="internal">
+
+
+                    <form method="post" action="/Account/Login">
+                        <input name="__RequestVerificationToken" type="hidden" value="x_QXpvOxh8rXRh00df5s4Rw2tyHVeCMx6Up0MgGB2xz-3IA2HX4j87CZ8uE0u9FWCGMZI0VOu0uHnogZAJus0FCmxwo1" />
+                        <input type="hidden" name="ReturnUrl" value="/" />
+                        <div class="row">
+                            <div class="label">Tài khoản</div>
+                            <div class="input">
+                                <input type="text" name="UserName" id="UserName" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="label">Mật khẩu</div>
+                            <div class="input">
+                                <input type="password" name="password" id="password" />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="checkbox-ctn">
+                                Nhớ đăng nhập
+                                <input type="checkbox" name="RememberMe" value="RememberMe">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+
+                        <div class="row">
+                            <div class="button-group">
+                                <button onclick="Login()" class="btn btn-submit" type="submit">ĐĂNG NHẬP</button>
+                                <a class="btn btn-link " href="~/NguoiDung/Register">ĐĂNG KÝ</a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <p class="forgotpass"><a class="" href="/Account/ForgotPassword">Quên mật khẩu?</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup-modal"></div>
+    <div id="sticker-modal"></div>
+    <div class="search-bg"></div>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<BanHang.Models.Manufacturer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@{
+    int STT = 0;
+    var lstLoai = (List<BanHang.Models.ProductCategory>)Session["LoaiSanPham"];
+}
+
+
+<link rel="stylesheet" type="text/css"
+      href="~/Areas/Admin/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">
+<link rel="stylesheet" type="text/css"
+      href="~/Areas/Admin/assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css">
+<div class="row">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Danh Sách Tài Khoản Thanh Toán</h4>
+                <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><a href="@Url.Action("Create","Manufacture")">Thêm mới</a> </button>
+                @*<h6 class="card-subtitle">Data table example</h6>*@
+                <div class="table-responsive m-t-40">
+                    <table id="myTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Ảnh</th>
+                                <th>Tên hãng</th>
+                                <th>Loại Sản Phẩm</th>
+                                <th>Mô Tả</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                STT++;
+                            <tr>
+                                <td>
+                                    @STT
+                                </td>
+                                <td>
+                                    <img src=@item.Image class="img-radius mb-1" style="height: 50px; width:50px; border-radius:50%" />
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td>
+
+                                    @foreach (var itemLoai in lstLoai)
+                                    {
+                                        if (item.CategoryID == itemLoai.ID)
+                                        {
+                                        <td>
+                                            @Html.DisplayFor(modelItem => itemLoai.Name)
+                                        </td>
+                                    }
+
+                                }
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink("Sủa", "Edit", new { id = item.ID }) |
+                                        @Html.ActionLink("Chi tiết", "Details", new { id = item.ID }) |
+                                        @Html.ActionLink("Xóa", "Delete", new { id = item.ID })
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+

@@ -1,0 +1,108 @@
+﻿@model IEnumerable<BanHang.Models.OrderProduct>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@{
+    var lstuser = (List<BanHang.Models.Account>)Session["User"];
+    var lstProduct =  (List<BanHang.Models.Product>)Session["product"];
+
+    }
+<link rel="stylesheet" type="text/css"
+      href="~/Areas/Admin/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css">
+<link rel="stylesheet" type="text/css"
+      href="~/Areas/Admin/assets/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css">
+<div class="row">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Danh Sách Sản Phẩm Đặt Hàng</h4>
+                <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><a href="@Url.Action("Create","User")">Thêm mới</a> </button>
+                @*<h6 class="card-subtitle">Data table example</h6>*@
+                <div class="table-responsive m-t-40">
+                    <table id="myTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tài khoản đặt hàng</th>
+                                <th> Sản phẩm đặt hàng</th>
+                                <th>Số điện thoại</th>
+                                <th>Ngày đặt hàng</th>
+                                <th>Trạng Thái</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                @*<td>
+                                    @Html.DisplayFor(modelItem => item._order.UserID)
+                                </td>*@
+                                @foreach (var itemUser in lstuser)
+                                {
+                                    if (item._order.UserID == itemUser.ID)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(modelItem => itemUser.AccountName)
+                                        </td>
+                                    }
+                                }
+                                @foreach (var itemProduct in lstProduct)
+                                {
+                                    if (item._orderDetail.ProductID == itemProduct.ID)
+                                    {
+                                        <td>
+                                            @Html.DisplayFor(modelItem => itemProduct.Name)
+                                        </td>
+                                    }
+                                }
+                                <td>
+                                    @item._order.OrderPhone
+                                </td>
+                                <td>
+                                    @item._order.CreatedDate
+                                </td>
+                                <td>
+                                    @if (item._order.Status == 0)
+                                    {
+                                        <span>Đang chờ xác nhận</span>
+                                    }
+                                    else if (item._order.Status == 1)
+                                    {
+                                        <span>Chờ lấy hàng</span>
+                                    }
+                                    else if (item._order.Status == 2)
+                                    {
+                                        <span>Đang giao</span>
+                                    }
+                                    else if (item._order.Status == 3)
+                                    {
+                                        <span>Đã giao</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Đã Hủy</span>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item._order.ID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item._order.ID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item._order.ID })
+                                </td>
+                            </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script src="~/Areas/Admin/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+
+

@@ -1,0 +1,123 @@
+﻿@model BanHang.Models.Account
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/LayoutWeb.cshtml";
+}
+
+@using (Html.BeginForm("Login", "NguoiDung", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <link href="~/Areas/Customer/User/register.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h3 class="card-title mt-3 text-center" style="color:red;">Đăng Nhập</h3>
+
+            <p>
+                @Html.ActionLink("Login with Facebook", "Facebook", "NguoiDung")
+                <button class="btn btn-block btn-facebook" data-toggle="tooltip" title="Đăng nhập với Facebook"> <i aria-hidden="true" class="fab fa-facebook-f"></i> Đăng nhập bằng facebook</button>
+                <button class="btn btn-block btn-googleplus" data-toggle="tooltip" title="Đăng nhập với Google" id="googleplus"> <i class="fab  fa-google-plus-g"></i> Đăng nhập bằng google</button>
+
+            </p>
+            <p class="divider-text">
+                <span class="bg-light">OR</span>
+            </p>
+            <form>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger">@ViewBag.Error</div>
+                }
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-key"></i> </span>
+                    </div>
+                    @Html.TextBoxFor(model => model.AccountName, new { htmlAttributes = new { @class = "form-control" }, placeholder = "Username", style = "width:318px; height:40px" })
+                    @Html.ValidationMessageFor(model => model.AccountName, "", new { @class = "text-danger" })
+                </div> <!-- form-group// -->
+
+
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" }, placeholder = "Password", style = "width:320px; height:40px" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div> <!-- form-group// -->
+
+                <div class="form-group">
+                    <div class="d-flex no-block align-items-center">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Ghi nhớ</label>
+                        </div>
+                        <div class="ml-auto">
+                            <a href="" id="to-recover" class="text-muted"><i class="fas fa-lock m-r-5"></i> Quên mật khẩu?</a>
+                        </div>
+                    </div>
+                </div> <!-- form-group// -->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Đăng Nhập  </button>
+                </div> <!-- form-group// -->
+                <p class="text-center">Bạn chưa có tài khoản? <a href="~/Customer/NguoiDung/Register">Đăng Ký</a></p>
+            </form>
+        </article>
+    </div> <!-- card.// -->
+    <!--container end.//-->
+
+}
+<script src="https://apis.google.com/js/api:client.js"></script>
+<script>
+        var googleUser = {};
+        var startAppA = function () {
+            gapi.load('auth2', function () {
+                //Retrieve the singleton for the GoogleAuth library and set up the client.
+                auth2 = gapi.auth2.init({
+                    client_id: '109855678647-29beka9qov3foa6a04komog57i946kpl.apps.googleusercontent.com',
+                    secret_key: 'AWZRzR3CGRehOxniVAUKv1dF',
+                    cookiepolicy: 'single_host_origin',
+                });
+                attachSignin(document.getElementById('googleplus'));
+            });
+        };
+
+        function attachSignin(element) {
+            auth2.attachClickHandler(element, {},
+                function (googleUser) {
+                    //debugger;
+                    $(".se-pre-con").show();
+                    console.log(googleUser);
+                    var profiles = googleUser.getBasicProfile();
+                    var ReturnUrl = 'http://localhost:59630/Login2/ReturnURL';
+                    alert("X");
+                    var objData = {
+                        Email: profiles.getEmail(),
+                        LastName: profiles.getFamilyName(),
+                        FirstName: profiles.getGivenName(),
+                        GoogleID: profiles.getId(),
+                        ProfileURL: profiles.getName(),
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("ReturnURL", "NguoiDung")',
+                        data: objData,
+                        datatype: "json",
+                        success: function (data) {
+                            alert("Successfully Done");
+                            window.location.href = "/Home/Index";
+                        }
+                    });
+                    $(".se-pre-con").hide();
+
+                }, function (error) {
+                    //alert(JSON.stringify(error, #ff0000, 2));
+                });
+            }
+            startAppA();
+</script>
+

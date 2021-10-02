@@ -1,0 +1,267 @@
+﻿@model PagedList.IPagedList<BanHang.Models.Product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Laptop";
+    Layout = "~/Views/Shared/LayoutWeb.cshtml";
+}
+@{
+    var lstHang = (List<BanHang.Models.Manufacturer>)Session["Hang"];
+}
+
+
+<!doctype html>
+<html>
+
+
+<body>
+
+
+
+    <section>
+        <div class="container">
+            <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <a itemprop="item" href="/"><span itemprop="name" content="Trang chủ"><i class="icon-home" title="Trang chủ"></i> Trang chủ</span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+
+                <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                    <i class="fa fa-angle-right"></i> <a itemprop="item" href="/laptop" title="Laptop" class="actived"><span itemprop="name" content="Laptop">Laptop</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+        </div>
+    </section>
+
+
+
+    <section>
+        <div class="container">
+            <div class="product-filters2">
+                <div class="left">
+                    <strong class="label">Lọc danh sách:</strong>
+
+                    <div class="facet">
+                        <label>
+                            <a href="javascript:;">Thương hiệu <i class="icon-rightar"></i></a>
+                        </label>
+                        <div class="sub">
+                            <ul>
+                                @foreach (var itemhang in lstHang)
+                                {
+                                    @*<li><a href="/laptop?filters={&quot;brand&quot;:&quot;202&quot;}&amp;search=true">Microsoft <i class="total">(2)</i></a></li>*@
+                                    <li><a href="/laptop?filters={&quot;brand&quot;:&quot;1&quot;}&amp;search=true">@itemhang.Name <i class="total">(9)</i></a></li>
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="facet">
+                        <label>
+                            <a href="javascript:;">Gi&#225; <i class="icon-rightar"></i></a>
+                        </label>
+                        <div class="sub">
+                            <ul>
+                                <li><a href="/laptop?filters={&quot;price&quot;:&quot;15t-20t&quot;}&amp;search=true">15 đến 20 triệu <i class="total">(1)</i></a></li>
+                                <li><a href="/laptop?filters={&quot;price&quot;:&quot;20t&quot;}&amp;search=true">Tr&#234;n 20 triệu <i class="total">(10)</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <div class="facet">
+                        <label>Sắp xếp <i class="icon-rightar"></i></label>
+                        <div class="sub">
+                            <ul>
+                                <li><a href="/laptop?filters={&quot;sort&quot;:&quot;1&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Sản phẩm mới - cũ</a></li>
+                                <li><a href="/laptop?filters={&quot;sort&quot;:&quot;2&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Gi&#225; tốt nhất</a></li>
+                                <li><a href="/laptop?filters={&quot;sort&quot;:&quot;3&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Gi&#225; cao đến thấp</a></li>
+                                <li><a href="/laptop?filters={&quot;sort&quot;:&quot;4&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Mới cập nhật</a></li>
+                                <li><a href="/laptop?filters={&quot;sort&quot;:&quot;5&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Sản phẩm cũ</a></li>
+                                <li><a href="/laptop?filters={&quot;sort&quot;:&quot;6&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Xem nhiều h&#244;m nay</a></li>
+                                <li><a href="/laptop?filters={&quot;sort&quot;:&quot;7&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Xem nhiều tuần n&#224;y</a></li>
+                                <li><a href="/laptop?filters={&quot;sort&quot;:&quot;8&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Xem nhiều th&#225;ng n&#224;y</a></li>
+                                <li><a href="/laptop?filters={&quot;sort&quot;:&quot;10&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Xem nhiều năm nay</a></li>
+                                <li><a href="/laptop?filters={&quot;sort&quot;:&quot;9&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Xem nhiều nhất</a></li>
+                                <li><a href="/laptop?filters={&quot;sort&quot;:&quot;11&quot;}&amp;search=true"><span class="fa fa-angle-right"></span> Kết quả t&#236;m kiếm</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container">
+
+            <a name="page_1"></a>
+            <div class="list-product">
+                <h1>Laptop</h1>
+                <div class="col-content lts-product">
+                    @foreach (var item in Model)
+                    {
+                        decimal? giamgia = item.Price - item.PromotionPrice;
+                    <div class="item">
+
+                        <div class="img">
+                            <a href="/lap-top/apple-imac-2021-m1-24-512gb-chinh-hang-apple-viet-nam" title="@item.Name">
+                                <img src="@item.Image" alt="@item.Name" title="@item.Name">
+                            </a>
+
+
+                        </div>
+                        <span class="sales">
+                            <i class="icon-flash2"></i> Giảm @giamgia ₫
+                        </span>
+                        <br />
+                        <br />
+                        @if (item.ManufacturerID == 1)
+                        {
+                            <div class="sticker sticker-left">
+                                <span>
+                                    <img src="~/ContentWeb/Content/web/sticker/apple.png" title="Ch&#237;nh h&#227;ng Apple" />
+                                </span>
+                            </div>
+                        }
+
+                        <br />
+                        <div class="info">
+                            <br />
+                            <a href="/lap-top/apple-imac-2021-m1-24-512gb-chinh-hang-apple-viet-nam" class="title" title="@item.Name">@item.Name</a>
+                            <span class="price">
+                                <strong>@item.PromotionPrice đ</strong>
+                                <strike>@item.Price đ</strike>
+                            </span>
+
+
+                        </div>
+                        <div class="note">
+                            <span class="bag">KM</span> <label title="Ưu đ&#227;i mua th&#234;m bao da k&#232;m b&#224;n ph&#237;m Microsoft Surface Pro - Ch&#237;nh h&#227;ng với gi&#225; chỉ c&#242;n 2.590.000đ">Ưu đ&#227;i mua th&#234;m bao da k&#232;m b&#224;n ph&#237;m...</label>
+                        </div>
+                        <div class="promote">
+                            <a href="/lap-top/microsoft-surface-pro-7-12-3-i5-8gb-256gb-khong-kem-ban-phim">
+                                <ul>
+                                    <li><span class="bag">KM</span> Ưu đ&#227;i mua th&#234;m bao da k&#232;m b&#224;n ph&#237;m Microsoft Surface Pro - Ch&#237;nh h&#227;ng với gi&#225; chỉ c&#242;n 2.590.000đ</li>
+                                </ul>
+                            </a>
+                        </div>
+
+
+                    </div>
+                    }
+
+                    
+                </div>
+            </div>
+
+            <div id="page-holder"></div>
+
+
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <iframe src="https://asia.creativecdn.com/tags?id=pr_n4X0y6ApZyJaHX1dNxQd_category2_26" width="1" height="1" scrolling="no" frameBorder="0" style="display: none;"></iframe>
+    <div id="popup-modal"></div>
+    <div id="sticker-modal"></div>
+    <div class="search-bg"></div>
+
+
+
+    <!-- analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-1415779-10', 'auto');
+        ga('require', 'GTM-KXZQBMD');
+        ga('require', 'GTM-WPLRWHK');
+        ga('send', 'pageview');
+
+    </script>
+    <!-- analytics -->
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5QM3X2');</script>
+    <!-- End Google Tag Manager -->
+    <!-- subiz -->
+    <script>!function (s, u, b, i, z) { var o, t, r, y; s[i] || (s._sbzaccid = z, s[i] = function () { s[i].q.push(arguments) }, s[i].q = [], s[i]("setAccount", z), r = ["widget.subiz.net", "storage.googleapis" + (t = ".com"), "app.sbz.workers.dev", i + "a" + (o = function (k, t) { var n = t <= 6 ? 5 : o(k, t - 1) + o(k, t - 3); return k !== t ? n : n.toString(32) })(20, 20) + t, i + "b" + o(30, 30) + t, i + "c" + o(40, 40) + t], (y = function (k) { var t, n; s._subiz_init_2094850928430 || r[k] && (t = u.createElement(b), n = u.getElementsByTagName(b)[0], t.async = 1, t.src = "https://" + r[k] + "/sbz/app.js?accid=" + z, n.parentNode.insertBefore(t, n), setTimeout(y, 2e3, k + 1)) })(0)) }(window, document, "script", "subiz", "acqqrmpwwuqeianonpxt")</script>
+    <!-- subiz -->
+    <!-- accesstrade-->
+    <script src="//static.accesstrade.vn/js/trackingtag/tracking.min.js "></script>
+    <script type="text/javascript">
+        AT.init({ "campaign_id": 626, "is_reoccur": 1, "is_lastclick": 1 });
+        AT.track();
+    </script>
+    <!-- accesstrade-->
+
+
+
+    <script src="/js-css/web_v1.0.9.9.js"></script>
+
+
+
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            $('#laptop').addClass('actived');
+
+            $('.lrs-slider').owlCarousel({
+                nav: true,
+                itemClass: 'lr-item',
+                loop: false,
+                items: 8,
+                autoplay: true,
+                autoplayHoverPause: true,
+                responsiveClass: true,
+                margin: 10
+            });
+        });
+
+        function getPage(p) {
+            var urlReq = '/laptop?p=' + p;
+            $.get(urlReq, function (data) {
+                $("#page-holder").append(data).hide().fadeIn(500);
+            });
+
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            showSticker(24);
+        });
+    </script>
+
+
+
+</body>
+</html>
+
+
+

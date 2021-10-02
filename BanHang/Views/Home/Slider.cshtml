@@ -1,0 +1,65 @@
+﻿@model List<BanHang.Models.Slider>
+
+
+<!-- slider -->
+<section>
+    <div class="container">
+        <div class="top-slider">
+            <div id="jssor_1" class="jssor-1200">
+                <!-- Loading Screen -->
+                <div data-u="loading" class="jssor-spin">
+                    <img src="~/ContentWeb/web/img/spin.svg" />
+                </div>
+                <div data-u="slides" class="jssor-1200-container">
+                    @foreach (var item in Model)
+                    {
+                        <div>
+                            <a target="_blank" href="#" title="Galaxy Series giảm sốc"><img data-u="image" src="@item.Image" title="Galaxy Series giảm sốc" /></a>
+                            <div u="thumb">@item.Title</div>
+                        </div>
+                    }
+
+                    @*<div>
+                        <a target="_blank" href="#" title="iPhone 11 - Ưu đ&#227;i đặc biệt"><img data-u="image" src="~/ContentWeb/Slider/iphone-12-830-300-830x300.png" title="iPhone 11 - Ưu đ&#227;i đặc biệt" /></a>
+                        <div u="thumb">iPhone 11 - Ưu đ&#227;i đặc biệt</div>
+                    </div>
+                    <div>
+                        <a target="_blank" href="#" title=" S21 Series giảm sốc"><img data-u="image" src="~/ContentWeb/Slider/note20-830-300-830x300.png" title=" S21 Series giảm sốc" /></a>
+                        <div u="thumb"> S21 Series giảm sốc</div>
+                    </div>
+                    <div>
+                        <a target="_blank" href="" title="Mở b&#225;n Reno6 Z "><img data-u="image" src="~/ContentWeb/Slider/renoz-830-300-830x300-2.png" title="Mở b&#225;n Reno6 Z " /></a>
+                        <div u="thumb">Mở b&#225;n Reno6 Z </div>
+                    </div>
+                    <div>
+                        <a target="_blank" href="#" title="Nokia X10"><img data-u="image" src="~/ContentWeb/Slider/830-300-830x300-13.png" title="Nokia X10" /></a>
+                        <div u="thumb">Nokia X10</div>
+                    </div>
+                    <div>
+                        <a target="_blank" href="#" title="Hotsale Redmi 9T gi&#225; cực sốc"><img data-u="image" src="~/ContentWeb/Slider/830-300-830x300-13.png" title="Hotsale Redmi 9T gi&#225; cực sốc" /></a>
+                        <div u="thumb">Hotsale Redmi 9T gi&#225; cực sốc</div>
+                    </div>*@
+
+                </div>
+
+
+                <div data-u="thumbnavigator" class="jssor-1200-thumbs">
+                    <div data-u="slides" style="cursor: pointer">
+                        <div data-u="prototype" class="p">
+                            <div class=w><div data-u="thumbnailtemplate"></div></div>
+                            <div class=c></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-u="arrowleft" class="slider-arr slider-arr-l" data-autocenter="2">
+                    <i class="icon-left"></i>
+                </div>
+                <div data-u="arrowright" class="slider-arr slider-arr-r" data-autocenter="2">
+                    <i class="icon-right"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
