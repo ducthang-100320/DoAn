@@ -183,6 +183,7 @@ namespace BanHang.Controllers.Customer
                 model._order.UserID = nameUser.ID;
                 model._order.OrderPhone = reciver.Phone;
                 model._order.CreatedDate = DateTime.Now;
+                model._order.Status = 0;
                 db.Orders.Add(model._order);
                 db.SaveChanges();
                 foreach (var itemCart in item)
